@@ -1,0 +1,10 @@
+{
+  "name": "sweatt-shop-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "start:3400": "npx serve -p 3400 ."
+  },
+  "devDependencies": {}
+}

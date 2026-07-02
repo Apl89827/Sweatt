@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweatt Shop: Cincinnati's Westside-Certified Strength Facility</title>
+<meta name="description" content="Westside-certified strength training in Blue Ash, Ohio. Conjugate method coaching for every athlete: powerlifters, sport performance, tactical, and everyday lifters. First session free, no contracts.">
+<meta name="theme-color" content="#0d110e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sweatt Shop: Cincinnati's Westside-Certified Strength Facility">
+<meta property="og:description" content="Conjugate method coaching for every athlete. 20+ years of proven results. First session free, no contracts.">
+<meta property="og:image" content="images/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ─── Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Brand — lime green sampled from the actual logo */
+  --brand:         oklch(70% 0.20 132);   /* accents, text, borders on black */
+  --brand-strong:  oklch(76% 0.22 132);   /* hover lift */
+  --brand-deep:    oklch(44% 0.14 132);   /* CTA fills, deep blocks */
+  --brand-soft:    color-mix(in srgb, var(--brand) 14%, transparent);
+  --brand-faint:   color-mix(in srgb, var(--brand) 7%, transparent);
+  --on-brand:      #ffffff;                /* text on deep-forest fills */
+
+  /* Surfaces */
+  --black:     #000;
+  --near:      #060807;
+  --surface:   #0A0B0A;
+  --surface-2: #111311;
+  --overlay:   rgba(0,0,0,.72);
+
+  /* Lines + text */
+  --border:    #232622;
+  --border-2:  #1a1d1a;
+  --muted:     #A1A6A1;
+  --white:     #ffffff;
+
+  /* Feedback — kept distinct from brand-green */
+  --danger:  oklch(64% 0.20 25);
+  --warning: oklch(80% 0.16 80);
+  --focus:   var(--brand-strong);
+
+  /* Fonts */
+  --font-d: 'Anton', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+
+  /* Fluid type scale */
+  --t-label:   11px;
+  --t-body:    clamp(14px, 1.05vw, 15px);
+  --t-h3:      clamp(20px, 2.4vw, 26px);
+  --t-h2:      clamp(34px, 6vw, 72px);
+  --t-display: clamp(48px, 9.5vw, 128px);
+
+  /* Space scale (4px base) */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+
+  /* Radius (capped at 14px on cards) */
+  --r-sm:4px; --r-md:8px; --r-lg:14px; --r-pill:999px;
+
+  /* Z-index */
+  --z-nav:100; --z-modal:1000; --z-toast:1100;
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast:120ms; --dur:240ms; --dur-slow:480ms;
+}
+
+/* ─── Reset ───────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-m);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+input,textarea,select{font-family:inherit}
+
+/* ─── Accessibility ───────────────────────────────────────── */
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.skip-link{
+  position:absolute;left:16px;top:-60px;z-index:1200;
+  background:var(--brand);color:var(--black);
+  padding:12px 20px;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  transition:top .2s var(--ease-out);
+}
+.skip-link:focus{top:16px}
+
+/* ─── Ambient radial ──────────────────────────────────────── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:radial-gradient(ellipse 90% 55% at 50% 0%, color-mix(in srgb,var(--brand) 9%,#000), transparent 65%);
+  pointer-events:none;z-index:0;
+}
+
+/* ─── Keyframes ───────────────────────────────────────────── */
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@keyframes reveal-up{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes reveal-clip{
+  from{clip-path:inset(0 0 100% 0)}
+  to{clip-path:inset(0 0 0% 0)}
+}
+@keyframes fade-in{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes stroke-in{
+  from{stroke-dashoffset:600}
+  to{stroke-dashoffset:0}
+}
+
+/* ─── Scroll reveal classes ───────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-clip{
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path .75s var(--ease-out);
+}
+.reveal-clip.visible{clip-path:inset(0 0 0% 0)}
+
+/* ─── Announcement bar ────────────────────────────────────── */
+.marquee-bar{
+  position:relative;z-index:30;
+  width:100%;height:28px;
+  background:var(--brand);
+  overflow:hidden;display:flex;align-items:center;
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 32s linear infinite;
+  font-size:10px;font-weight:700;
+  letter-spacing:.22em;color:var(--black);text-transform:uppercase;
+}
+.marquee-track span{padding:0 28px}
+
+/* ─── Scroll progress ─────────────────────────────────────── */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:2px;
+  background:var(--brand);width:0%;z-index:150;
+  transition:width .1s linear;
+}
+
+/* ─── Navigation ──────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:30;
+  background:rgba(0,0,0,.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:background .25s var(--ease-out);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  padding:0 24px;height:80px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:height .25s var(--ease-out);
+}
+.nav.scrolled .nav-inner{height:60px}
+.nav.scrolled{background:rgba(0,0,0,.97)}
+.brand{
+  display:inline-flex;align-items:center;flex-shrink:0;
+  transition:transform .2s var(--ease-out), opacity .2s var(--ease-out);
+}
+.brand:hover{opacity:.88;transform:scale(1.015)}
+.nav-logo-img{height:60px;width:auto;display:block;flex-shrink:0;transition:height .25s var(--ease-out)}
+.nav.scrolled .nav-logo-img{height:44px}
+.nav-links{
+  display:flex;align-items:center;gap:2px;
+}
+.nav-link{
+  position:relative;
+  padding:8px 10px;
+  font-size:10.5px;font-weight:700;
+  letter-spacing:.18em;color:var(--muted);
+  text-transform:uppercase;overflow:hidden;
+  transition:color .2s var(--ease-out);
+}
+.nav-link::after{
+  content:'';
+  position:absolute;bottom:4px;left:14px;right:14px;height:1px;
+  background:var(--brand);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease-out);
+}
+.nav-link:hover{color:var(--white)}
+.nav-link:hover::after{transform:scaleX(1)}
+
+.nav-cta{
+  padding:10px 22px;
+  background:var(--brand-deep);color:var(--on-brand);
+  font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--brand-deep);
+  transition:background .15s var(--ease-out), transform .16s var(--ease-out);
+}
+.nav-cta:hover{background:var(--brand)}
+.nav-cta:active{transform:scale(0.97)}
+
+.nav-burger{
+  display:none;
+  min-width:44px;min-height:44px;
+  align-items:center;justify-content:center;
+  background:none;border:1px solid var(--border);
+  color:var(--white);padding:9px 11px;
+  font-size:15px;line-height:1;
+  transition:border-color .15s;
+}
+.nav-burger:hover{border-color:var(--muted)}
+
+.nav-mobile{
+  display:none;
+  border-top:1px solid var(--border);
+  background:var(--surface);
+  padding:12px 24px 20px;
+  flex-direction:column;gap:2px;
+}
+.nav-mobile.open{display:flex}
+.nav-mobile .nav-link{padding:15px 4px;font-size:12px;display:block}
+
+@media(max-width:1180px){
+  .nav-links,.nav-cta{display:none}
+  .nav-burger{display:inline-flex}
+}
+
+/* ─── Hero ────────────────────────────────────────────────── */
+.hero-shell{position:relative;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  animation:hero-kenburns 12s var(--ease-out) forwards;
+}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;object-position:70% 45%;
+  filter:brightness(.5) contrast(1.12) saturate(1.05);
+}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(100deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.78) 32%, rgba(0,0,0,.4) 58%, rgba(0,0,0,.55) 100%),
+    linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 32%);
+}
+.hero-grain{
+  position:absolute;inset:0;z-index:2;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@keyframes hero-kenburns{
+  from{transform:scale(1.12)}
+  to{transform:scale(1)}
+}
+.hero{
+  position:relative;z-index:10;
+  min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:0 24px;
+}
+.hero-content{
+  position:relative;z-index:3;
+  width:100%;max-width:1280px;margin:0 auto;
+}
+.hero-eyebrow{
+  font-size:10.5px;font-weight:700;
+  letter-spacing:.4em;color:var(--brand);text-transform:uppercase;
+  margin-bottom:28px;
+  opacity:0;animation:reveal-up .6s var(--ease-out) .1s forwards;
+}
+.hero-h1{
+  font-family:var(--font-d);
+  font-size:clamp(60px,11.5vw,158px);
+  line-height:.9;letter-spacing:.005em;
+  text-transform:uppercase;
+  opacity:0;animation:reveal-up .7s var(--ease-out) .2s forwards;
+}
+.hero-h1 .outline{
+  color:var(--black);
+  -webkit-text-stroke:1.5px var(--brand);
+  display:block;
+}
+.hero-sub{
+  max-width:640px;
+  margin-top:32px;
+  font-size:12.5px;font-weight:500;
+  line-height:1.8;letter-spacing:.06em;
+  color:var(--muted);text-transform:uppercase;
+  opacity:0;animation:reveal-up .65s var(--ease-out) .34s forwards;
+}
+.hero-actions{
+  margin-top:40px;
+  display:flex;flex-wrap:wrap;gap:14px;
+  opacity:0;animation:reveal-up .65s var(--ease-out) .46s forwards;
+}
+.btn-primary{
+  padding:15px 30px;
+  background:var(--brand-deep);color:var(--on-brand);
+  font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--brand-deep);
+  transition:background .2s var(--ease-out), transform .2s var(--ease-out), box-shadow .2s var(--ease-out);
+  display:inline-block;
+}
+.btn-primary:hover{background:var(--brand);transform:translateY(-2px);box-shadow:0 8px 24px color-mix(in srgb,var(--brand) 35%,transparent)}
+.btn-primary:active{transform:scale(0.97) translateY(0);box-shadow:none}
+
+.btn-ghost{
+  padding:15px 30px;
+  background:transparent;color:var(--white);
+  font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--border);
+  transition:border-color .2s var(--ease-out), color .2s var(--ease-out), transform .2s var(--ease-out);
+  display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--brand);color:var(--white);transform:translateY(-2px)}
+.btn-ghost:active{transform:scale(0.97) translateY(0)}
+
+.hero-line{
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom, transparent, var(--brand) 30%, var(--brand) 70%, transparent);
+  opacity:0;animation:fade-in .8s var(--ease-out) .5s forwards;
+}
+
+/* ─── Stats ───────────────────────────────────────────────── */
+.stats{
+  position:relative;z-index:10;
+  width:100%;background:var(--brand);color:var(--black);
+  border-top:1px solid #000;border-bottom:1px solid #000;
+}
+.stats-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-cell{
+  padding:40px 20px;text-align:center;
+  border-right:1px solid rgba(0,0,0,.3);
+}
+.stat-cell:last-child{border-right:none}
+.stat-num{
+  font-family:var(--font-d);
+  font-size:clamp(44px,6vw,76px);
+  line-height:1;
+}
+.stat-label{
+  font-size:9.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(0,0,0,.75);margin-top:9px;
+}
+
+@media(max-width:680px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-cell{border-right:none;border-bottom:1px solid rgba(0,0,0,.2)}
+  .stat-cell:nth-child(odd){border-right:1px solid rgba(0,0,0,.2)}
+  .stat-cell:nth-child(3),.stat-cell:nth-child(4){border-bottom:none}
+}
+
+/* ─── Section commons ─────────────────────────────────────── */
+.section{
+  position:relative;z-index:10;
+  max-width:1280px;margin:0 auto;
+  padding:88px 24px 0;
+  scroll-margin-top:88px;
+}
+.section-head{
+  display:flex;align-items:center;gap:14px;margin-bottom:40px;
+}
+.section-accent{width:5px;height:36px;background:var(--brand);flex-shrink:0}
+.section-title{
+  font-family:var(--font-d);font-weight:400;
+  font-size:clamp(32px,5vw,54px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+}
+
+/* ─── Offer band ──────────────────────────────────────────── */
+.offer-band{
+  position:relative;z-index:10;
+  background:var(--near);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:36px 24px;
+}
+.offer-band-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.offer-band-accent{width:5px;height:44px;background:var(--brand);flex-shrink:0}
+.offer-band-text{flex:1;min-width:220px}
+.offer-band-title{
+  font-family:var(--font-d);font-size:clamp(19px,2.4vw,26px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+}
+.offer-band-sub{
+  margin-top:4px;font-size:11px;letter-spacing:.08em;
+  color:var(--muted);text-transform:uppercase;
+}
+.offer-band .btn-primary{flex-shrink:0}
+
+/* ─── Method bento ────────────────────────────────────────── */
+.method-bento{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:1px;
+  background:var(--border);
+}
+.method-card{
+  background:var(--surface);
+  display:flex;flex-direction:column;
+  transition:background .2s var(--ease-out);
+}
+.method-card:hover{background:var(--surface-2)}
+.method-card--hero{grid-row:span 2}
+.method-card--wide{grid-column:2/-1}
+.method-img{
+  width:100%;overflow:hidden;
+  position:relative;
+}
+.method-card--hero .method-img{aspect-ratio:3/4}
+.method-card:not(.method-card--hero) .method-img{aspect-ratio:16/9}
+.method-card--wide .method-img{aspect-ratio:21/9}
+.method-img img,.coach-img img,.training-img img,.metrics-img img,.testimonial-avatar img,.career-cell img{
+  filter:saturate(.9) contrast(1.08) brightness(.95);
+}
+.method-img img{
+  transition:transform .6s var(--ease-out);
+}
+.method-card:hover .method-img img{transform:scale(1.03)}
+.method-body{
+  padding:22px;border-top:1px solid var(--border);
+  flex:1;display:flex;flex-direction:column;gap:8px;
+}
+.method-name{
+  font-family:var(--font-d);font-size:22px;
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+}
+.method-desc{
+  font-size:12px;line-height:1.65;color:var(--muted);
+}
+
+@media(max-width:900px){
+  .method-bento{grid-template-columns:1fr 1fr}
+  .method-card--hero{grid-row:span 1}
+  .method-card--hero .method-img{aspect-ratio:16/9}
+  .method-card--wide{grid-column:1/-1}
+}
+@media(max-width:600px){
+  .method-bento{grid-template-columns:1fr}
+  .method-card--wide{grid-column:auto}
+  .method-card--wide .method-img{aspect-ratio:16/9}
+}
+
+/* ─── Pricing ─────────────────────────────────────────────── */
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1.25fr 1fr;
+  gap:1px;background:var(--border);margin-top:44px;
+}
+.price-card{
+  background:var(--surface);padding:36px 28px;
+  display:flex;flex-direction:column;
+  transition:background .2s var(--ease-out);
+}
+.price-card:hover{background:var(--surface-2)}
+.price-card--featured{background:var(--near);border-top:3px solid var(--brand)}
+.price-card--featured:hover{background:#0d0f0d}
+.price-tag{
+  font-size:9.5px;letter-spacing:.16em;color:var(--brand);
+  text-transform:uppercase;margin-bottom:14px;
+}
+.price-name{
+  font-family:var(--font-d);font-size:26px;
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+  margin-bottom:8px;
+}
+.price-desc{font-size:11.5px;line-height:1.7;color:var(--muted);margin-bottom:24px}
+.price-amount{display:flex;align-items:baseline;gap:6px;margin-bottom:26px}
+.price-num{font-family:var(--font-d);font-size:42px;color:var(--white)}
+.price-period{font-size:11px;color:var(--muted);text-transform:uppercase}
+.price-features{display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1}
+.price-feature{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--muted)}
+.price-feature-dot{width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0}
+
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card--featured{border-top:1px solid var(--brand);border-left:3px solid var(--brand)}
+}
+
+/* ─── Training ────────────────────────────────────────────── */
+.conjugate-grid{
+  display:grid;grid-template-columns:1.15fr 1fr;
+  gap:48px;align-items:start;margin-top:52px;
+}
+.conjugate-title{
+  font-family:var(--font-d);font-size:clamp(26px,3.8vw,40px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+  margin-bottom:4px;
+}
+.red-rule{width:44px;height:3px;background:var(--brand);margin:14px 0 28px}
+.training-card{
+  padding:22px;background:var(--surface);border:1px solid var(--border);
+  margin-bottom:14px;
+  transition:border-color .2s var(--ease-out), transform .2s var(--ease-out);
+}
+.training-card:hover{border-color:var(--brand);transform:translateY(-2px)}
+.training-card:last-child{margin-bottom:0}
+.training-card-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin-bottom:10px;
+}
+.training-card-name{
+  font-size:15px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--white);
+}
+.training-card-tag{
+  font-size:9.5px;letter-spacing:.16em;color:var(--brand);
+  text-transform:uppercase;white-space:nowrap;
+}
+.training-card-desc{
+  font-size:11.5px;line-height:1.75;color:var(--muted);margin-bottom:12px;
+}
+.training-pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{
+  padding:3px 9px;border:1px solid var(--border);
+  font-size:8.5px;font-weight:700;letter-spacing:.12em;
+  color:var(--brand);text-transform:uppercase;
+}
+.training-img{
+  position:relative;
+  aspect-ratio:1/1;overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.sport-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;margin-top:28px;
+}
+.sport-card{
+  padding:28px;background:var(--surface);border:1px solid var(--border);
+  transition:border-color .2s var(--ease-out),transform .2s var(--ease-out);
+}
+.sport-card:hover{border-color:var(--brand);transform:translateY(-2px)}
+.sport-card-accent{width:5px;height:22px;background:var(--brand);margin-bottom:14px}
+.sport-card-name{
+  font-family:var(--font-d);font-size:21px;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--white);
+  margin-bottom:8px;
+}
+.sport-card-desc{font-size:11.5px;line-height:1.7;color:var(--muted)}
+
+.foundations{
+  position:relative;overflow:hidden;
+  margin-top:28px;padding:36px;
+  background:var(--near);border:1px solid var(--border);
+}
+.foundations::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:
+    linear-gradient(100deg, var(--near) 25%, color-mix(in srgb,var(--near) 55%,transparent) 60%, transparent 100%),
+    url('images/home-foundations.jpg');
+  background-size:cover;background-position:75% center;
+  filter:brightness(.6);
+}
+.foundations > *{position:relative;z-index:1}
+.foundations-title{
+  font-family:var(--font-d);font-size:clamp(20px,2.8vw,28px);
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+  margin-bottom:10px;
+}
+.foundations-sub{
+  font-size:12.5px;line-height:1.7;color:var(--muted);
+  margin-bottom:22px;max-width:640px;
+}
+.foundation-row{
+  padding:14px 18px;background:var(--surface);border:1px solid var(--border);
+  font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--white);
+  margin-bottom:8px;
+  transition:border-color .15s var(--ease-out),background .15s var(--ease-out), transform .15s var(--ease-out);
+}
+.foundation-row:last-child{margin-bottom:0}
+.foundation-row:hover{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 5%,transparent);transform:translateX(4px)}
+
+@media(max-width:900px){
+  .conjugate-grid{grid-template-columns:1fr}
+  .training-img{aspect-ratio:16/9}
+}
+@media(max-width:600px){
+  .sport-grid{grid-template-columns:1fr}
+}
+
+/* ─── Lineage ─────────────────────────────────────────────── */
+.lineage-intro{
+  max-width:680px;margin:0 auto;text-align:center;
+  margin-bottom:56px;
+}
+.lineage-title{
+  font-family:var(--font-d);
+  font-size:clamp(50px,9.5vw,124px);
+  line-height:.9;letter-spacing:.01em;text-transform:uppercase;
+  color:var(--brand);
+}
+.lineage-desc{
+  margin:24px auto 0;max-width:600px;
+  font-size:11.5px;line-height:1.85;letter-spacing:.08em;
+  color:var(--muted);text-transform:uppercase;
+}
+.lineage-rule{width:80px;height:3px;background:var(--brand);margin:22px auto 0}
+
+.founder-grid{margin-top:0}
+.coach-card{
+  border:1px solid var(--border);background:var(--surface);
+  display:flex;flex-direction:column;
+  transition:border-color .2s var(--ease-out);
+}
+.coach-card:hover{border-color:color-mix(in srgb,var(--brand) 40%,transparent)}
+.founder-card{display:grid;grid-template-columns:.85fr 1.15fr}
+.coach-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.founder-img{aspect-ratio:auto;height:100%;min-height:420px}
+.coach-img img{transition:transform .7s var(--ease-out)}
+.coach-card:hover .coach-img img{transform:scale(1.04)}
+.coach-badge{
+  position:absolute;bottom:14px;left:14px;
+  background:var(--brand);color:var(--white);
+  font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;padding:5px 13px;
+}
+.coach-body{padding:28px;display:flex;flex-direction:column;gap:18px}
+.coach-name{
+  font-family:var(--font-d);
+  font-size:clamp(26px,3.8vw,38px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+  margin-bottom:6px;
+}
+.coach-rule{width:44px;height:2px;background:var(--brand)}
+.coach-quote{
+  position:relative;
+  padding:16px 18px;
+  background:color-mix(in srgb,var(--brand) 7%,transparent);
+  border:1px solid color-mix(in srgb,var(--brand) 20%,transparent);
+  font-size:11.5px;font-style:italic;line-height:1.75;
+  color:color-mix(in srgb,var(--brand) 90%,transparent);
+}
+.coach-quote::before{
+  content:'\201C';
+  font-family:var(--font-d);font-size:40px;
+  color:color-mix(in srgb,var(--brand) 25%,transparent);
+  position:absolute;top:-10px;left:12px;
+  line-height:1;
+}
+.coach-bio{font-size:11.5px;line-height:1.75;color:var(--muted)}
+.coach-skills-head{
+  font-size:9.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--white);margin-bottom:10px;
+}
+.coach-skills{display:flex;flex-direction:column;gap:7px}
+.founder-skills{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+@media(max-width:600px){.founder-skills{grid-template-columns:1fr}}
+.coach-skill{
+  display:flex;align-items:center;gap:10px;
+  font-size:11.5px;color:var(--muted);
+}
+.coach-skill-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--brand);
+  flex-shrink:0;
+}
+
+.career-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+  margin-top:32px;
+}
+.career-cell{
+  margin:0;background:var(--surface);
+  display:flex;flex-direction:column;
+}
+.career-cell img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .6s var(--ease-out);
+}
+.career-cell:hover img{transform:scale(1.03)}
+.career-cell{overflow:hidden}
+.career-caption{
+  padding:13px 15px;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  color:var(--muted);text-transform:uppercase;
+  border-top:1px solid var(--border);
+}
+@media(max-width:900px){
+  .career-strip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .career-strip{grid-template-columns:1fr}
+}
+
+.lineage-cta{
+  text-align:center;margin-top:60px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.lineage-cta-title{
+  font-family:var(--font-d);
+  font-size:clamp(28px,4vw,44px);
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+}
+.lineage-cta-sub{
+  font-size:11.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;
+}
+
+@media(max-width:760px){
+  .founder-card{grid-template-columns:1fr}
+  .founder-img{aspect-ratio:4/3;min-height:0}
+}
+
+/* ─── Testimonials ────────────────────────────────────────── */
+.testimonial-row{
+  display:flex;gap:20px;margin-top:44px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:14px;scrollbar-width:none;
+}
+.testimonial-row::-webkit-scrollbar{display:none}
+.testimonial-card{
+  scroll-snap-align:start;flex:0 0 clamp(260px,80vw,320px);
+  background:var(--surface);border:1px solid var(--border);
+  padding:26px;display:flex;flex-direction:column;gap:16px;
+  transition:border-color .2s var(--ease-out);
+}
+.testimonial-card:hover{border-color:var(--brand)}
+.testimonial-quote{font-size:12.5px;line-height:1.75;color:var(--white)}
+.testimonial-foot{
+  display:flex;align-items:center;gap:12px;margin-top:auto;
+  padding-top:16px;border-top:1px solid var(--border);
+}
+.testimonial-avatar{
+  width:42px;height:42px;border-radius:50%;
+  flex-shrink:0;border:1px solid color-mix(in srgb,var(--brand) 30%,transparent);
+  background:var(--brand-faint);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-d);font-size:14px;letter-spacing:.05em;
+  color:var(--brand);
+}
+.testimonial-name{
+  font-size:11.5px;font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--white);
+}
+.testimonial-stat{
+  font-size:9.5px;letter-spacing:.08em;color:var(--brand);
+  text-transform:uppercase;margin-top:2px;
+}
+
+/* ─── Records ─────────────────────────────────────────────── */
+.records-h2{
+  font-family:var(--font-d);
+  font-size:clamp(50px,9.5vw,124px);
+  line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--white);
+}
+.records-sub{
+  margin-top:18px;padding-left:18px;
+  border-left:2px solid var(--brand);
+  max-width:520px;
+  font-size:11.5px;line-height:1.75;letter-spacing:.08em;
+  color:var(--muted);text-transform:uppercase;
+}
+.records-rule{width:80px;height:3px;background:var(--brand);margin-top:16px}
+
+.pr-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);margin-top:52px;
+}
+.pr-cell{
+  background:var(--surface);padding:28px;
+  transition:background .2s var(--ease-out);
+}
+.pr-cell:hover{background:var(--surface-2)}
+.pr-lift{
+  font-size:10.5px;font-weight:700;letter-spacing:.18em;
+  color:var(--muted);text-transform:uppercase;
+}
+.pr-num{
+  margin-top:14px;
+  font-family:var(--font-d);
+  font-size:clamp(50px,6.5vw,76px);
+  line-height:1;color:var(--white);
+}
+.pr-unit{
+  font-family:var(--font-m);font-size:15px;font-weight:400;
+  color:var(--brand);margin-left:5px;
+}
+.pr-holder{
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--border-2);
+  font-size:9.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;
+}
+
+.metrics-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:44px;align-items:center;margin-top:52px;
+}
+.metrics-title{
+  font-family:var(--font-d);font-size:clamp(22px,3vw,30px);
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+  margin-bottom:4px;
+}
+.metrics-sub{font-size:10.5px;color:var(--muted);margin-bottom:4px}
+.metrics-rows{font-family:var(--font-m)}
+.metric-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:15px 0;border-bottom:1px solid var(--border-2);
+  transition:background .15s;
+}
+.metric-row:last-child{border-bottom:none}
+.metric-name{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--white);text-transform:uppercase}
+.metric-event{font-size:9.5px;color:var(--muted);text-transform:uppercase;margin-top:2px}
+.metric-badge{
+  font-size:7.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--brand);border:1px solid color-mix(in srgb,var(--brand) 40%,transparent);
+  background:color-mix(in srgb,var(--brand) 10%,transparent);padding:2px 6px;text-transform:uppercase;
+  margin-left:7px;vertical-align:middle;
+}
+.metric-delta{
+  font-family:var(--font-d);font-size:22px;color:var(--brand);flex-shrink:0;
+}
+.metrics-img{
+  position:relative;aspect-ratio:4/3;
+  border:1px solid var(--border);overflow:hidden;
+}
+
+/* ─── PR Calculator ───────────────────────────────────────── */
+.calc-wrap{
+  margin-top:52px;background:var(--surface);border:1px solid var(--border);
+  padding:32px;
+}
+.calc-head{
+  border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px;
+}
+.calc-title{
+  font-family:var(--font-d);font-size:24px;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+}
+.calc-sub{font-size:10.5px;color:var(--muted);margin-top:5px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.calc-section-label{
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--white);margin-bottom:14px;
+}
+.calc-inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.calc-label{
+  display:block;margin-bottom:5px;
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--muted);text-transform:uppercase;
+}
+.calc-input,.calc-select{
+  width:100%;height:42px;
+  background:var(--black);border:1px solid var(--border);
+  color:var(--white);font-family:var(--font-m);font-size:12px;
+  padding:0 10px;outline:none;
+  transition:border-color .15s var(--ease-out);
+  -webkit-appearance:none;appearance:none;
+}
+.calc-select{cursor:pointer}
+.calc-input:focus,.calc-select:focus{border-color:var(--brand)}
+
+.calc-result{
+  padding:18px;background:var(--black);border:1px solid var(--border);
+}
+.calc-result-label{
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--brand);text-transform:uppercase;margin-bottom:12px;
+}
+.calc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-rm{
+  font-family:var(--font-d);font-size:36px;line-height:1;color:var(--white);
+}
+.calc-rm.secondary{color:var(--muted)}
+.calc-rm-unit{font-family:var(--font-m);font-size:12px;color:var(--muted);margin-left:4px}
+.calc-rm-method{
+  font-size:8.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--muted);text-transform:uppercase;margin-top:5px;
+}
+.calc-rm-divider{border-right:1px solid var(--border-2);padding-right:10px}
+
+.pct-table{border:1px solid var(--border);overflow:hidden}
+.pct-table-head{
+  display:grid;grid-template-columns:80px 90px 1fr;
+  padding:9px 12px;background:rgba(0,0,0,.5);
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--brand);text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+.pct-row{
+  display:grid;grid-template-columns:80px 90px 1fr;
+  padding:10px 12px;border-bottom:1px solid var(--border-2);
+  align-items:center;
+  transition:background .12s;
+}
+.pct-row:last-child{border-bottom:none}
+.pct-row:hover{background:color-mix(in srgb,var(--brand) 6%,transparent)}
+.pct-val{font-size:12px;font-weight:700;color:var(--white)}
+.pct-load{font-size:12px;font-weight:700;color:var(--brand)}
+.pct-protocol{font-size:10.5px;font-weight:600;color:var(--white);text-transform:uppercase}
+.pct-purpose{font-size:8.5px;color:var(--muted);margin-top:1px}
+
+.records-cta{
+  text-align:center;margin-top:52px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.records-cta-title{
+  font-family:var(--font-d);
+  font-size:clamp(26px,4vw,44px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+}
+
+@media(max-width:900px){
+  .pr-grid{grid-template-columns:1fr 1fr}
+  .metrics-grid{grid-template-columns:1fr}
+  .calc-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .pr-grid{grid-template-columns:1fr}
+  .calc-inputs{grid-template-columns:1fr 1fr}
+}
+
+/* ─── FAQ ─────────────────────────────────────────────────── */
+.faq-list{max-width:820px;margin:44px auto 0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item summary{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:24px 4px;cursor:pointer;list-style:none;
+  font-family:var(--font-d);font-size:clamp(15px,1.8vw,18px);
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+  transition:color .15s var(--ease-out);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--brand)}
+.faq-icon{width:18px;height:18px;position:relative;flex-shrink:0}
+.faq-icon::before,.faq-icon::after{
+  content:'';position:absolute;background:var(--brand);
+  transition:transform .25s var(--ease-out);
+}
+.faq-icon::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%)}
+.faq-icon::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%)}
+.faq-item[open] .faq-icon::after{transform:translateX(-50%) rotate(90deg)}
+.faq-answer{
+  padding:0 28px 24px 4px;font-size:12px;line-height:1.8;
+  color:var(--muted);max-width:68ch;
+}
+
+/* ─── Contact ─────────────────────────────────────────────── */
+.contact-banner{
+  position:relative;height:320px;border:1px solid var(--border);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+  text-align:center;
+}
+.contact-banner-img{position:absolute;inset:0}
+.contact-banner-img img{filter:brightness(.35) contrast(1.1)}
+.contact-banner-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.4);
+}
+.contact-banner-content{position:relative}
+.contact-banner-h2{
+  font-family:var(--font-d);
+  font-size:clamp(42px,8.5vw,100px);
+  line-height:.91;letter-spacing:.01em;text-transform:uppercase;color:var(--white);
+}
+.contact-banner-sub{
+  margin-top:14px;
+  font-size:11.5px;font-weight:700;letter-spacing:.3em;
+  color:var(--brand);text-transform:uppercase;
+}
+
+.contact-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;
+  gap:44px;margin-top:44px;
+}
+.contact-title{
+  font-family:var(--font-d);font-size:clamp(26px,4vw,36px);
+  letter-spacing:.03em;text-transform:uppercase;color:var(--white);
+  margin-bottom:4px;
+}
+.contact-sub{font-size:10.5px;color:var(--muted);margin-bottom:0}
+.contact-form{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.form-label{
+  display:block;margin-bottom:5px;
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--brand);text-transform:uppercase;
+}
+.form-input,.form-textarea{
+  width:100%;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--white);font-family:var(--font-m);font-size:11.5px;
+  padding:0 14px;outline:none;
+  transition:border-color .15s var(--ease-out);
+}
+.form-input{height:48px}
+.form-textarea{padding:14px;resize:none}
+.form-input:focus,.form-textarea:focus{border-color:var(--brand)}
+.form-input::placeholder,.form-textarea::placeholder{color:#555;text-transform:uppercase}
+
+.contact-sidebar{display:flex;flex-direction:column;gap:22px}
+.contact-info{
+  background:var(--brand);color:var(--black);
+  padding:28px;display:flex;flex-direction:column;gap:18px;
+}
+.info-section-label{
+  font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.7;
+}
+.info-city{
+  font-family:var(--font-d);font-size:24px;
+  letter-spacing:.02em;text-transform:uppercase;margin:6px 0 3px;
+}
+.info-address{
+  font-size:11.5px;font-weight:700;line-height:1.6;
+  text-transform:uppercase;color:rgba(0,0,0,.78);
+}
+.info-divider{border-top:1px solid rgba(0,0,0,.22);padding-top:15px}
+
+/* ─── Hours / getting-started panel ───────────────────────── */
+.hours-panel{
+  border:1px solid var(--border);background:var(--near);
+  padding:24px;
+}
+.hours-panel-label{
+  font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  color:var(--brand);text-transform:uppercase;margin-bottom:14px;
+}
+.hours-row{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:9px 0;border-top:1px solid var(--border-2);
+  font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;
+}
+.hours-row:first-of-type{border-top:none}
+.hours-row span:last-child{color:var(--white);font-variant-numeric:tabular-nums}
+.hours-directions{
+  display:inline-block;margin-top:16px;
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brand);
+  border-bottom:1px solid color-mix(in srgb,var(--brand) 45%,transparent);
+  padding-bottom:2px;transition:color .15s var(--ease-out),border-color .15s var(--ease-out);
+}
+.hours-directions:hover{color:var(--brand-strong);border-color:var(--brand-strong)}
+
+@media(max-width:760px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* ─── Success state ───────────────────────────────────────── */
+.modal--confirm{text-align:center;padding:42px 32px}
+.confirm-check{
+  width:62px;height:62px;border-radius:50%;
+  background:var(--brand-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.confirm-check svg{width:30px;height:30px;stroke:#fff;stroke-width:3;fill:none}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+.footer{
+  position:relative;z-index:10;
+  margin-top:88px;border-top:1px solid var(--border);
+  padding:48px 24px;
+}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:24px;
+  padding-bottom:28px;border-bottom:1px solid var(--border-2);
+}
+.footer-tagline{
+  margin-top:4px;font-size:9.5px;letter-spacing:.1em;
+  color:var(--muted);text-transform:uppercase;
+}
+.footer-links{
+  display:flex;gap:22px;
+  font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase;
+}
+.footer-link{transition:color .15s var(--ease-out)}
+.footer-link:hover{color:var(--brand)}
+.footer-legal{
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:12px;
+  padding-top:22px;
+}
+.footer-copy{
+  font-size:9.5px;letter-spacing:.08em;color:#555;text-transform:uppercase;
+}
+.footer-legal-links{display:flex;gap:18px}
+.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#555}
+.footer-legal-links .footer-link:hover{color:var(--brand)}
+
+@media(max-width:600px){
+  .footer-top{flex-direction:column;gap:16px}
+  .footer-legal{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+/* ─── Modals ──────────────────────────────────────────────── */
+.modal-dialog{
+  width:calc(100% - 32px);max-width:560px;margin:auto;
+  background:var(--surface);border:1px solid var(--border);
+  padding:0;color:var(--white);max-height:92vh;
+}
+.modal-dialog:has(.modal--wide){max-width:700px}
+.modal-dialog::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(5px)}
+.modal-dialog[open]{animation:modal-in .3s var(--ease-out)}
+@keyframes modal-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+.modal{padding:32px;position:relative;max-height:92vh;overflow-y:auto}
+.modal-close{
+  position:absolute;right:16px;top:16px;
+  background:none;border:none;color:var(--muted);
+  font-size:20px;line-height:1;padding:4px 8px;
+  transition:color .15s;
+}
+.modal-close:hover{color:var(--white)}
+.modal-title{
+  font-family:var(--font-d);font-size:26px;
+  letter-spacing:.02em;text-transform:uppercase;color:var(--white);
+}
+.modal-sub{
+  font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--brand);text-transform:uppercase;margin-top:4px;
+}
+.modal-rule{width:44px;height:2px;background:var(--brand);margin:13px 0 20px}
+.modal-form{display:flex;flex-direction:column;gap:12px}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-row-3{display:grid;grid-template-columns:2fr 2fr 1fr;gap:10px}
+.modal-section-label{
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--brand);text-transform:uppercase;margin-bottom:6px;
+}
+.modal-lifts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+
+/* ─── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .reveal-clip { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .marquee-track { animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- Reusable logo glyph (barbell) -->
+
+<!-- Announcement bar -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>WESTSIDE BARBELL CERTIFIED &nbsp;&middot;&nbsp; 20+ YEARS OF PROVEN RESULTS &nbsp;&middot;&nbsp; BLUE ASH, OHIO &nbsp;&middot;&nbsp; NO CONTRACTS &nbsp;&middot;&nbsp; FIRST SESSION ON US &nbsp;&middot;&nbsp;</span>
+    <span>WESTSIDE BARBELL CERTIFIED &nbsp;&middot;&nbsp; 20+ YEARS OF PROVEN RESULTS &nbsp;&middot;&nbsp; BLUE ASH, OHIO &nbsp;&middot;&nbsp; NO CONTRACTS &nbsp;&middot;&nbsp; FIRST SESSION ON US &nbsp;&middot;&nbsp;</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="Sweatt Shop home">
+      <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img" width="735" height="241">
+    </a>
+    <div class="nav-links" role="list">
+      <a href="#home"     class="nav-link" role="listitem">Home</a>
+      <a href="#training" class="nav-link" role="listitem">Training</a>
+      <a href="#pricing"  class="nav-link" role="listitem">Pricing</a>
+      <a href="#lineage"  class="nav-link" role="listitem">Lineage</a>
+      <a href="#records"  class="nav-link" role="listitem">Records</a>
+      <a href="#faq"      class="nav-link" role="listitem">FAQ</a>
+      <a href="#contact"  class="nav-link" role="listitem">Contact</a>
+    </div>
+    <button class="nav-cta" onclick="openDialog('booking')" aria-label="Book a session">BOOK A SESSION</button>
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile" role="list">
+    <a href="#home"     class="nav-link" onclick="closeNav()">Home</a>
+    <a href="#training" class="nav-link" onclick="closeNav()">Training</a>
+    <a href="#pricing"  class="nav-link" onclick="closeNav()">Pricing</a>
+    <a href="#lineage"  class="nav-link" onclick="closeNav()">Lineage</a>
+    <a href="#records"  class="nav-link" onclick="closeNav()">Records</a>
+    <a href="#faq"      class="nav-link" onclick="closeNav()">FAQ</a>
+    <a href="#contact"  class="nav-link" onclick="closeNav()">Contact</a>
+    <button class="btn-primary" style="margin-top:8px" onclick="closeNav();openDialog('booking')">BOOK A SESSION</button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ─── Hero ──────────────────────────────────────────────── -->
+<section id="home" class="hero hero-shell" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="images/results-hero.jpg" alt="" loading="eager">
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-line" aria-hidden="true"></div>
+    <p class="hero-eyebrow">Cincinnati's Westside-Certified Strength Facility</p>
+    <h1 class="hero-h1" id="hero-heading">
+      THE BARBELL<br>
+      <span class="outline">IS FOR</span>
+      EVERYBODY.
+    </h1>
+    <p class="hero-sub">The Conjugate Method. The system that built the world's strongest lifters, applied to every athlete who walks in.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+      <a href="#training" class="btn-ghost">LEARN THE METHOD</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Stats ─────────────────────────────────────────────── -->
+<div class="stats reveal" role="region" aria-label="Key statistics">
+  <div class="stats-grid">
+    <div class="stat-cell">
+      <div class="stat-num" data-count="20">20</div>
+      <div class="stat-label">Years of Coaching</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Westside-Certified Gym. Blue Ash, Ohio</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">&#8734;</div>
+      <div class="stat-label">Sports Trained</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" data-count="0">0</div>
+      <div class="stat-label">Contracts Required</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Offer band ─────────────────────────────────────────── -->
+<div class="offer-band reveal" role="region" aria-label="Introductory offer">
+  <div class="offer-band-inner">
+    <div class="offer-band-accent" aria-hidden="true"></div>
+    <div class="offer-band-text">
+      <div class="offer-band-title">First Session On Us. No Contracts, No Catch.</div>
+      <div class="offer-band-sub">Walk in, meet a Westside-certified coach, leave with a plan.</div>
+    </div>
+    <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+  </div>
+</div>
+
+<!-- ─── The Method ────────────────────────────────────────── -->
+<section class="section" aria-labelledby="method-heading">
+  <div class="section-head reveal">
+    <div class="section-accent" aria-hidden="true"></div>
+    <h2 class="section-title" id="method-heading">The Method.</h2>
+  </div>
+
+  <div class="method-bento">
+    <!-- Hero card: Strength Athletes -->
+    <div class="method-card method-card--hero reveal">
+      <div class="method-img">
+        <img src="images/method-strength.jpg" alt="Lifter setting up for a heavy deadlift on a dark gym floor" loading="lazy">
+      </div>
+      <div class="method-body">
+        <h3 class="method-name">Strength Athletes</h3>
+        <p class="method-desc">Powerlifters, strongman, Olympic lifters. This is where the Westside system is run the way Louie built it, bands and chains included.</p>
+      </div>
+    </div>
+
+    <!-- Sport Performance -->
+    <div class="method-card reveal" style="transition-delay:.08s">
+      <div class="method-img">
+        <img src="images/method-sport.jpg" alt="Sprinter in the starting blocks on a track" loading="lazy">
+      </div>
+      <div class="method-body">
+        <h3 class="method-name">Sport Performance</h3>
+        <p class="method-desc">Football, wrestling, MMA, baseball, hockey. Get stronger than your opponent.</p>
+      </div>
+    </div>
+
+    <!-- Tactical -->
+    <div class="method-card reveal" style="transition-delay:.14s">
+      <div class="method-img">
+        <img src="images/method-tactical.jpg" alt="Athlete driving battle ropes in an industrial training space" loading="lazy">
+      </div>
+      <div class="method-body">
+        <h3 class="method-name">Tactical &amp; First Responders</h3>
+        <p class="method-desc">Military, fire, police, EMS. Built by an operator for operators. Train for the day, not the photo.</p>
+      </div>
+    </div>
+
+    <!-- Everyday Strength -->
+    <div class="method-card method-card--wide reveal" style="transition-delay:.2s">
+      <div class="method-img">
+        <img src="images/method-everyday.jpg" alt="Two members pressing kettlebells overhead during a coached session" loading="lazy">
+      </div>
+      <div class="method-body">
+        <h3 class="method-name">Everyday Strength</h3>
+        <p class="method-desc">No sport required. Parents, professionals, first-timers: build the strength that makes everything else easier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Pricing ────────────────────────────────────────────── -->
+<section id="pricing" class="section" aria-labelledby="pricing-heading">
+  <div class="section-head reveal">
+    <div class="section-accent" aria-hidden="true"></div>
+    <h2 class="section-title" id="pricing-heading">Membership.</h2>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="price-tag">Self-Directed</div>
+      <div class="price-name">Open Gym</div>
+      <p class="price-desc">24/7 badge access to the floor. Bring your own program or follow the posted conjugate cycle.</p>
+      <div class="price-amount"><span class="price-num">$89</span><span class="price-period">/ month</span></div>
+      <div class="price-features">
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>24/7 keycard access</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Full platform &amp; specialty bar access</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Posted conjugate cycle</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>No contract</div>
+      </div>
+      <a href="#contact" class="btn-ghost" style="text-align:center">GET STARTED</a>
+    </div>
+
+    <div class="price-card price-card--featured reveal" style="transition-delay:.08s">
+      <div class="price-tag">Most Athletes Choose This</div>
+      <div class="price-name">Coached</div>
+      <p class="price-desc">Small-group conjugate programming, written and adjusted weekly by a Westside-certified coach.</p>
+      <div class="price-amount"><span class="price-num">$219</span><span class="price-period">/ month</span></div>
+      <div class="price-features">
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Everything in Open Gym</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>4x weekly coached sessions</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Weekly program adjustments</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Monthly PR testing</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>No contract</div>
+      </div>
+      <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+    </div>
+
+    <div class="price-card reveal" style="transition-delay:.16s">
+      <div class="price-tag">1-on-1</div>
+      <div class="price-name">Private Lab</div>
+      <p class="price-desc">Private, high-performance sessions built around your event, injury history, or schedule.</p>
+      <div class="price-amount"><span class="price-num">$95</span><span class="price-period">/ session</span></div>
+      <div class="price-features">
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Fully private floor time</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Individualized programming</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Direct coach access</div>
+        <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>No contract</div>
+      </div>
+      <a href="#contact" class="btn-ghost" style="text-align:center">INQUIRE</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Training ──────────────────────────────────────────── -->
+<section id="training" class="section" aria-labelledby="training-heading">
+  <h2 class="reveal-clip" id="training-heading" style="font-family:var(--font-d);font-size:clamp(46px,9vw,124px);line-height:.91;letter-spacing:.01em;text-transform:uppercase;color:var(--white)">
+    TRAINING IS<br>PERFORMANCE.
+  </h2>
+  <p class="reveal" style="margin-top:18px;font-size:11.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase">Elite programming for maximum output. No gimmicks, just work.</p>
+  <div class="red-rule reveal"></div>
+
+  <div class="conjugate-grid">
+    <div class="reveal">
+      <h3 class="conjugate-title">The Conjugate Method</h3>
+      <div class="red-rule"></div>
+
+      <div class="training-card">
+        <div class="training-card-head">
+          <span class="training-card-name">Max Effort Day</span>
+          <span class="training-card-tag">Absolute Strength</span>
+        </div>
+        <p class="training-card-desc">Straining against maximal loads to push the central nervous system to its absolute limit.</p>
+        <div class="training-pills">
+          <span class="pill">1-3 Rep Max</span>
+          <span class="pill">Heavy Bands</span>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <div class="training-card-head">
+          <span class="training-card-name">Dynamic Effort Day</span>
+          <span class="training-card-tag">Speed Strength</span>
+        </div>
+        <p class="training-card-desc">Moving sub-maximal weights as fast as humanly possible to build explosive power and rate of force development.</p>
+        <div class="training-pills">
+          <span class="pill">Speed Work</span>
+          <span class="pill">Accommodating Resistance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="training-img reveal" style="transition-delay:.1s">
+      <img src="images/training-chalk.jpg" alt="Chalk-covered hands gripping a barbell" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Sport Performance -->
+  <div style="margin-top:64px" class="reveal">
+    <h3 class="conjugate-title">Sport Performance</h3>
+    <div class="red-rule"></div>
+    <div class="sport-grid">
+      <div class="sport-card">
+        <div class="sport-card-accent" aria-hidden="true"></div>
+        <h4 class="sport-card-name">Speed &amp; Agility</h4>
+        <p class="sport-card-desc">Linear speed mechanics, change of direction, and reactive agility drills designed to translate directly to on-field dominance.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-accent" aria-hidden="true"></div>
+        <h4 class="sport-card-name">Explosiveness</h4>
+        <p class="sport-card-desc">Plyometrics, medicine ball throws, and Olympic lifting variations to maximize vertical and broad jump metrics.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Foundations -->
+  <div class="foundations reveal">
+    <h3 class="foundations-title">Foundations</h3>
+    <p class="foundations-sub">Longevity in sport requires an unbreakable foundation. We prioritize joint health, tissue resilience, and structural balance.</p>
+    <div class="foundation-row">GPP: General Physical Preparedness</div>
+    <div class="foundation-row">Posterior Chain Development</div>
+    <div class="foundation-row">Mobility &amp; Recovery Protocols</div>
+  </div>
+</section>
+
+<!-- ─── Lineage ────────────────────────────────────────────── -->
+<section id="lineage" class="section" aria-labelledby="lineage-heading">
+  <div class="lineage-intro">
+    <h2 class="reveal-clip" id="lineage-heading" style="font-family:var(--font-d);font-size:clamp(50px,9.5vw,124px);line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--brand)">THE LINEAGE</h2>
+    <p class="lineage-desc reveal">Forged in the Westside Barbell tradition: strength built through scientific rigor, technical mastery, and coaching that meets you where you are.</p>
+    <div class="lineage-rule reveal"></div>
+  </div>
+
+  <div class="founder-grid">
+    <div class="coach-card founder-card reveal">
+      <div class="coach-img founder-img">
+        <img src="images/shane-games.jpg" alt="Shane Sweatt coaching a lifter on the CrossFit Games competition floor" loading="lazy">
+        <div class="coach-badge">Founder / Master Westside Barbell Coach</div>
+      </div>
+      <div class="coach-body">
+        <div>
+          <h3 class="coach-name">Shane Sweatt</h3>
+          <div class="coach-rule"></div>
+        </div>
+        <div class="coach-quote">
+          The conjugate method doesn't care what sport you play. It builds the qualities every athlete needs: max strength, explosive power, work capacity, durability. Then we layer your sport on top.
+        </div>
+        <p class="coach-bio">Over 20 years as a certified strength coach. Shane trained directly alongside Louie Simmons at Westside Barbell and earned Master certification in the Westside Method, a level that requires a minimum of seven years training under Louie himself. Louie trusted Shane to teach the official CrossFit Powerlifting Trainer Course in his place, translating decades of world-record methodology into programming for every athlete who walks in, from first-time lifters to Special Forces and federal law enforcement.</p>
+        <div>
+          <p class="coach-skills-head">Credentials</p>
+          <div class="coach-skills founder-skills">
+            <div class="coach-skill"><div class="coach-skill-dot"></div><span>Westside Barbell Master Certified Coach</span></div>
+            <div class="coach-skill"><div class="coach-skill-dot"></div><span>Official CrossFit Powerlifting Trainer Course Instructor</span></div>
+            <div class="coach-skill"><div class="coach-skill-dot"></div><span>20+ Years Strength Coaching Experience</span></div>
+            <div class="coach-skill"><div class="coach-skill-dot"></div><span>Tactical &amp; Federal Law Enforcement Training</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="career-strip reveal" role="list" aria-label="Shane Sweatt career highlights">
+    <figure class="career-cell" role="listitem">
+      <img src="images/shane-westside.jpg" alt="Shane Sweatt sitting with Louie Simmons at Westside Barbell" loading="lazy">
+      <figcaption class="career-caption">With Louie Simmons at Westside Barbell</figcaption>
+    </figure>
+    <figure class="career-cell" role="listitem" style="transition-delay:.06s">
+      <img src="images/shane-coaching.jpg" alt="Shane Sweatt coaching a young athlete through a program on the gym floor" loading="lazy">
+      <figcaption class="career-caption">20+ years on the gym floor</figcaption>
+    </figure>
+    <figure class="career-cell" role="listitem" style="transition-delay:.12s">
+      <img src="images/shane-olympian.jpg" alt="An Olympic medalist biting his medal" loading="lazy">
+      <figcaption class="career-caption">Olympic medalists to first-time lifters</figcaption>
+    </figure>
+    <figure class="career-cell" role="listitem" style="transition-delay:.18s">
+      <img src="images/shane-tactical.jpg" alt="Shane Sweatt with two U.S. Border Patrol tactical operators in the gym" loading="lazy">
+      <figcaption class="career-caption">Special Forces &amp; federal law enforcement</figcaption>
+    </figure>
+  </div>
+
+  <div class="lineage-cta reveal">
+    <h3 class="lineage-cta-title">Ready to Work?</h3>
+    <p class="lineage-cta-sub">Stop wasting time with generic programming. Join the lineage.</p>
+    <button class="btn-primary" onclick="openDialog('application')">SUBMIT APPLICATION</button>
+  </div>
+</section>
+
+<!-- ─── Testimonials ───────────────────────────────────────── -->
+<section id="results" class="section" aria-labelledby="testimonials-heading">
+  <div class="section-head reveal">
+    <div class="section-accent" aria-hidden="true"></div>
+    <h2 class="section-title" id="testimonials-heading">Results.</h2>
+  </div>
+
+  <div class="testimonial-row" role="list">
+    <div class="testimonial-card reveal" role="listitem">
+      <p class="testimonial-quote">Every session is written around my actual numbers, not a generic sheet. Six months in and my vertical is still climbing.</p>
+      <div class="testimonial-foot">
+        <div class="testimonial-avatar" aria-hidden="true">SW</div>
+        <div>
+          <div class="testimonial-name">S. Williams</div>
+          <div class="testimonial-stat">+4.2&quot; Vertical Jump</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal" style="transition-delay:.06s" role="listitem">
+      <p class="testimonial-quote">I came in for longevity, not competition. Nobody made me feel out of place lifting next to powerlifters.</p>
+      <div class="testimonial-foot">
+        <div class="testimonial-avatar" aria-hidden="true">TC</div>
+        <div>
+          <div class="testimonial-name">T. Carter</div>
+          <div class="testimonial-stat">+60lb Trap Bar / &minus;8bpm Resting HR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal" style="transition-delay:.12s" role="listitem">
+      <p class="testimonial-quote">Westside-certified coaching is the real thing here. My deadlift moved more in one cycle than in three years on my own.</p>
+      <div class="testimonial-foot">
+        <div class="testimonial-avatar" aria-hidden="true">MK</div>
+        <div>
+          <div class="testimonial-name">M. Kane</div>
+          <div class="testimonial-stat">340kg Deadlift PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal" style="transition-delay:.18s" role="listitem">
+      <p class="testimonial-quote">Straightforward, no fluff, no upsells. Just a coach who knows the conjugate method cold and holds you to it.</p>
+      <div class="testimonial-foot">
+        <div class="testimonial-avatar" aria-hidden="true">JM</div>
+        <div>
+          <div class="testimonial-name">J. Miller</div>
+          <div class="testimonial-stat">315kg Squat PR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Records ────────────────────────────────────────────── -->
+<section id="records" class="section" aria-labelledby="records-heading">
+  <h2 class="records-h2 reveal-clip" id="records-heading">PRS DON'T LIE.</h2>
+  <p class="records-sub reveal">Real performance data: kilos added, not inches lost. This is where the work shows up.</p>
+  <div class="records-rule reveal"></div>
+
+  <h3 class="reveal" style="margin-top:52px;font-family:var(--font-d);font-size:clamp(22px,3vw,30px);letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin-bottom:20px">All-Time Records</h3>
+
+  <div class="pr-grid">
+    <div class="pr-cell reveal">
+      <div class="pr-lift">Squat</div>
+      <div class="pr-num"><span class="pr-counter" data-target="315">315</span><span class="pr-unit">kg</span></div>
+      <div class="pr-holder">J. Miller / 2023</div>
+    </div>
+    <div class="pr-cell reveal" style="transition-delay:.06s">
+      <div class="pr-lift">Bench</div>
+      <div class="pr-num"><span class="pr-counter" data-target="205">205</span><span class="pr-unit">kg</span></div>
+      <div class="pr-holder">T. Davis / 2024</div>
+    </div>
+    <div class="pr-cell reveal" style="transition-delay:.12s">
+      <div class="pr-lift">Deadlift</div>
+      <div class="pr-num"><span class="pr-counter" data-target="340">340</span><span class="pr-unit">kg</span></div>
+      <div class="pr-holder">M. Kane / 2023</div>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="reveal">
+      <h3 class="metrics-title">Performance Metrics</h3>
+      <p class="metrics-sub">Verified output increases across 12-week macrocycles.</p>
+      <div class="red-rule"></div>
+      <div class="metrics-rows">
+        <div class="metric-row">
+          <div>
+            <div style="display:flex;align-items:center">
+              <span class="metric-name">S. Williams</span>
+              <span class="metric-badge">PRO</span>
+            </div>
+            <div class="metric-event">Vertical Jump</div>
+          </div>
+          <div class="metric-delta">+4.2&quot;</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <div style="display:flex;align-items:center">
+              <span class="metric-name">T. Carter</span>
+              <span class="metric-badge">FOUNDATIONS</span>
+            </div>
+            <div class="metric-event">Trap Bar DL / Resting HR</div>
+          </div>
+          <div class="metric-delta" style="font-size:17px">+60lb / -8bpm</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <span class="metric-name">A. Chen</span>
+            <div class="metric-event">Peak Power Output</div>
+          </div>
+          <div class="metric-delta">+12%</div>
+        </div>
+        <div class="metric-row">
+          <div>
+            <span class="metric-name">L. Thompson</span>
+            <div class="metric-event">Pro Agility Drill</div>
+          </div>
+          <div class="metric-delta">-2.1s</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics-img reveal" style="transition-delay:.1s">
+      <img src="images/results-williams.jpg" alt="Athlete performing a box jump" loading="lazy">
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.9),transparent)">
+        <div style="width:22px;height:3px;background:var(--brand);margin-bottom:6px"></div>
+        <h4 style="font-family:var(--font-d);font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--white)">Explosive Power</h4>
+        <p style="font-size:9.5px;color:var(--muted);text-transform:uppercase;margin-top:3px">Maximize power velocity on the platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PR Calculator -->
+  <div class="calc-wrap reveal" aria-label="Conjugate PR Calculator">
+    <div class="calc-head">
+      <h3 class="calc-title">Conjugate PR Calculator</h3>
+      <p class="calc-sub">Estimate 1-rep max and calculate percentages for dynamic speed work.</p>
+    </div>
+    <div class="calc-grid">
+      <div>
+        <p class="calc-section-label">1. Input Performance</p>
+        <div class="calc-inputs">
+          <div>
+            <label class="calc-label" for="calc-lift">Lift</label>
+            <select class="calc-select" id="calc-lift" onchange="updateCalc()">
+              <option value="SQUAT">Squat</option>
+              <option value="BENCH">Bench</option>
+              <option value="DEADLIFT">Deadlift</option>
+              <option value="OHP">OH Press</option>
+            </select>
+          </div>
+          <div>
+            <label class="calc-label" for="calc-weight">Weight (kg)</label>
+            <input type="number" class="calc-input" id="calc-weight" min="1" value="100" onchange="updateCalc()" oninput="updateCalc()">
+          </div>
+          <div>
+            <label class="calc-label" for="calc-reps">Reps</label>
+            <input type="number" class="calc-input" id="calc-reps" min="1" max="30" value="5" onchange="updateCalc()" oninput="updateCalc()">
+          </div>
+        </div>
+        <div class="calc-result">
+          <p class="calc-result-label">Estimated 1-Rep Max</p>
+          <div class="calc-result-grid">
+            <div class="calc-rm-divider">
+              <div class="calc-rm" id="calc-epley">0<span class="calc-rm-unit">kg</span></div>
+              <div class="calc-rm-method">Epley (Standard)</div>
+            </div>
+            <div>
+              <div class="calc-rm secondary" id="calc-brzycki">0<span class="calc-rm-unit">kg</span></div>
+              <div class="calc-rm-method">Brzycki (Strict)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="calc-section-label">2. Conjugate Speed-Work Percentages</p>
+        <div class="pct-table" id="pct-table">
+          <div class="pct-table-head">
+            <div>PCT</div><div>LOAD</div><div>PROTOCOL</div>
+          </div>
+          <!-- Rows injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="records-cta reveal">
+    <h3 class="records-cta-title">Stop Guessing. Start Tracking.</h3>
+    <button class="btn-primary" onclick="openDialog('booking')">BOOK AN EVALUATION</button>
+  </div>
+</section>
+
+<!-- ─── FAQ ────────────────────────────────────────────────── -->
+<section id="faq" class="section" aria-labelledby="faq-heading">
+  <div class="section-head reveal">
+    <div class="section-accent" aria-hidden="true"></div>
+    <h2 class="section-title" id="faq-heading">Questions.</h2>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item reveal">
+      <summary>Do I need experience to start?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <p class="faq-answer">No. Your first session is an intake: a coach assesses your movement, history, and goals before writing anything. Beginners and competitive lifters train on the same floor, just different programming.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Do you require contracts?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <p class="faq-answer">No contracts on any membership tier, including Coached and Private Lab. Cancel or pause with 30 days' notice, no cancellation fee.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>What should I bring to my first session?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <p class="faq-answer">Closed-toe shoes, clothes you can move in, and water. If you have a recent injury history or medical restriction, bring that too, it changes how your first cycle is written.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Is private coaching available?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <p class="faq-answer">Yes. The Private Lab is fully 1-on-1 floor time, billed per session, for athletes who need privacy, a flexible schedule, or programming built around a specific event or injury.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Can I train around an injury?<span class="faq-icon" aria-hidden="true"></span></summary>
+      <p class="faq-answer">That is most of what the conjugate method is built for. Tell your coach what hurts and what your doctor or PT has cleared, and your program is written around it, not in spite of it.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ─── Contact ────────────────────────────────────────────── -->
+<section id="contact" class="section" aria-labelledby="contact-heading">
+  <div class="contact-banner">
+    <div class="contact-banner-img">
+      <img src="images/contact-hero.jpg" alt="" role="presentation" loading="lazy">
+    </div>
+    <div class="contact-banner-overlay" aria-hidden="true"></div>
+    <div class="contact-banner-content">
+      <h2 class="contact-banner-h2" id="contact-heading">GET STRONGER.<br>LOOK BETTER.</h2>
+      <p class="contact-banner-sub">Move better. Feel better. Live stronger.</p>
+    </div>
+  </div>
+
+  <div class="contact-grid">
+    <div class="reveal">
+      <h3 class="contact-title">Let's Talk.</h3>
+      <p class="contact-sub">Tell us your name and your goal. We reply within one business day.</p>
+      <div class="red-rule"></div>
+
+      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event, null, 'Message Sent', 'We have your details and your goal. Expect a reply within one business day.')" novalidate>
+        <div>
+          <label class="form-label" for="c-name">Name</label>
+          <input type="text" class="form-input" id="c-name" placeholder="WHO ARE YOU?" required autocomplete="name">
+        </div>
+        <div>
+          <label class="form-label" for="c-email">Email</label>
+          <input type="email" class="form-input" id="c-email" placeholder="WHERE DO WE REPLY?" required autocomplete="email">
+        </div>
+        <div>
+          <label class="form-label" for="c-mission">Your Mission / Intent</label>
+          <textarea class="form-textarea" id="c-mission" rows="4" placeholder="WHAT IS YOUR TARGET? (e.g. Add 50kg to total, elite power)" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <div class="contact-sidebar reveal" style="transition-delay:.1s">
+      <div class="contact-info">
+        <div>
+          <div class="info-section-label">Location</div>
+          <div class="info-city">Blue Ash, Ohio</div>
+          <p class="info-address">4627 CARLYNN DR<br>BLUE ASH, OH 45241</p>
+        </div>
+        <div class="info-divider">
+          <div class="info-section-label">Operations</div>
+          <p class="info-address" style="margin-top:4px">24/7 Open Gym &nbsp;&middot;&nbsp; Staffed M-F</p>
+        </div>
+        <div class="info-divider">
+          <div class="info-section-label">Phone</div>
+          <p class="info-address" style="margin-top:4px"><a href="tel:5137209981" style="color:inherit">(513) 720-9981</a></p>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div class="hours-panel">
+        <div class="hours-panel-label">Staffed Hours</div>
+        <div class="hours-row"><span>Mon&ndash;Fri</span><span>5:00a &ndash; 9:00p</span></div>
+        <div class="hours-row"><span>Saturday</span><span>7:00a &ndash; 4:00p</span></div>
+        <div class="hours-row"><span>Sunday</span><span>Open Gym Only</span></div>
+        <div class="hours-row"><span>Members</span><span>24 / 7 Access</span></div>
+        <a class="hours-directions" href="https://www.google.com/maps/dir/?api=1&destination=4627+Carlynn+Dr,+Blue+Ash,+OH+45241" target="_blank" rel="noreferrer">Get Directions &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ─── Footer ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#home" class="brand" aria-label="Sweatt Shop home">
+          <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img" width="735" height="241">
+        </a>
+        <div class="footer-tagline">Strength for Every Body. Blue Ash, Ohio.</div>
+      </div>
+      <nav class="footer-links" aria-label="Social media links">
+        <a href="https://instagram.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Instagram</a>
+        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noreferrer" class="footer-link">YouTube</a>
+        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Facebook</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-copy">&#169; 2026 Sweatt Shop. Blue Ash, OH. All Rights Reserved.</p>
+      <nav class="footer-legal-links" aria-label="Legal">
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="accessibility.html" class="footer-link">Accessibility Statement</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── Booking Modal ──────────────────────────────────────── -->
+<dialog class="modal-dialog" id="modal-booking" aria-labelledby="booking-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeDialog('booking')" aria-label="Close dialog">&#215;</button>
+    <h3 class="modal-title" id="booking-title">Book Your Free Session</h3>
+    <p class="modal-sub">Intake Evaluation &amp; Private Session</p>
+    <div class="modal-rule"></div>
+
+    <form class="modal-form" id="booking-form" onsubmit="handleSubmit(event, 'booking', 'Session Booked', 'Your free intake session is reserved. Check your email for confirmation and what to bring.')" novalidate>
+      <div class="modal-row">
+        <div>
+          <label class="form-label" for="b-name">Name</label>
+          <input type="text" class="form-input" id="b-name" placeholder="NAME" required autocomplete="name">
+        </div>
+        <div>
+          <label class="form-label" for="b-email">Email</label>
+          <input type="email" class="form-input" id="b-email" placeholder="EMAIL" required autocomplete="email">
+        </div>
+      </div>
+      <div class="modal-row">
+        <div>
+          <label class="form-label" for="b-specialty">Specialty</label>
+          <select class="form-input calc-select" id="b-specialty" style="height:42px;cursor:pointer">
+            <option value="POWERLIFTING">Powerlifting</option>
+            <option value="SPORTS PERFORMANCE">Sports Performance</option>
+            <option value="FOUNDATIONS">Foundations</option>
+            <option value="PRIVATE LAB">The Private Lab</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="b-day">Session Day</label>
+          <select class="form-input calc-select" id="b-day" style="height:42px;cursor:pointer">
+            <option value="MONDAY">Mon - Max Effort Squat/DL</option>
+            <option value="WEDNESDAY">Wed - Max Effort Bench</option>
+            <option value="FRIDAY">Fri - Dynamic Squat/DL</option>
+            <option value="SATURDAY">Sat - Dynamic Bench</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="form-label" for="b-goal">Primary Lift Goal</label>
+        <textarea class="form-textarea" id="b-goal" rows="2" placeholder="e.g. POWERLIFTING TOTAL, SPRINT VELOCITY, CHRONIC LOWER BACK" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%">Book My Free Session</button>
+    </form>
+  </div>
+</dialog>
+
+<!-- ─── Application Modal ──────────────────────────────────── -->
+<dialog class="modal-dialog" id="modal-application" aria-labelledby="app-title">
+  <div class="modal modal--wide">
+    <button class="modal-close" onclick="closeDialog('application')" aria-label="Close dialog">&#215;</button>
+    <h3 class="modal-title" id="app-title">Athlete Intake Application</h3>
+    <p class="modal-sub">Coached Programming Placement</p>
+    <div class="modal-rule"></div>
+
+    <form class="modal-form" id="application-form" onsubmit="handleSubmit(event, 'application', 'Application Received', 'Your lifter profile is in. We review every application and reply within 48 hours.')" novalidate>
+      <div class="modal-row-3">
+        <div>
+          <label class="form-label" for="a-name">Name</label>
+          <input type="text" class="form-input" id="a-name" placeholder="NAME" required autocomplete="name">
+        </div>
+        <div>
+          <label class="form-label" for="a-email">Email</label>
+          <input type="email" class="form-input" id="a-email" placeholder="EMAIL" required autocomplete="email">
+        </div>
+        <div>
+          <label class="form-label" for="a-age">Age</label>
+          <input type="number" class="form-input" id="a-age" placeholder="AGE" min="13" max="99" required>
+        </div>
+      </div>
+
+      <div>
+        <p class="modal-section-label" style="border-top:1px solid var(--border-2);padding-top:14px">Your Maximum Lifts</p>
+        <div class="modal-lifts" style="margin-top:8px">
+          <input type="text" class="form-input" placeholder="SQUAT e.g. 180kg" id="a-squat">
+          <input type="text" class="form-input" placeholder="BENCH e.g. 120kg" id="a-bench">
+          <input type="text" class="form-input" placeholder="DEADLIFT e.g. 220kg" id="a-deadlift">
+        </div>
+      </div>
+      <div>
+        <label class="form-label" for="a-exp">Training Experience</label>
+        <input type="text" class="form-input" id="a-exp" placeholder="e.g. 3 YEARS POWERLIFTING, FORMER COLLEGIATE WRESTLER" required>
+      </div>
+      <div>
+        <label class="form-label" for="a-mot">Why the Sweatt Shop?</label>
+        <textarea class="form-textarea" id="a-mot" rows="3" placeholder="WHAT ARE YOU TRAINING FOR? TELL US YOUR GOAL..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%">Submit Application</button>
+    </form>
+  </div>
+</dialog>
+
+<!-- ─── Confirmation Modal (reusable) ──────────────────────── -->
+<dialog class="modal-dialog" id="modal-confirm" aria-labelledby="confirm-title">
+  <div class="modal modal--confirm">
+    <div class="confirm-check" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3 class="modal-title" id="confirm-title">You're In</h3>
+    <p class="modal-sub" id="confirm-msg" style="color:var(--muted);letter-spacing:.04em;text-transform:none;font-weight:400;font-size:13px;line-height:1.7;margin-top:10px"></p>
+    <button class="btn-primary" onclick="closeDialog('confirm')" style="width:100%;margin-top:22px">Done</button>
+  </div>
+</dialog>
+
+<script>
+/* ─── Nav toggle ──────────────────────────────────────────── */
+const burger = document.getElementById('nav-burger');
+const mobileNav = document.getElementById('nav-mobile');
+burger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+function closeNav() {
+  mobileNav.classList.remove('open');
+  burger.setAttribute('aria-expanded', false);
+}
+
+/* ─── Scroll progress + nav shrink ────────────────────────── */
+const navEl = document.querySelector('.nav');
+const progressEl = document.getElementById('scroll-progress');
+let scrollTicking = false;
+function onScroll() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progressEl.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+  navEl.classList.toggle('scrolled', scrollTop > 40);
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) { requestAnimationFrame(onScroll); scrollTicking = true; }
+}, { passive: true });
+onScroll();
+
+/* ─── Dialogs (native <dialog>: free focus trap + Escape) ──── */
+function openDialog(id) {
+  const d = document.getElementById('modal-' + id);
+  if (!d) return;
+  d.showModal();
+  const first = d.querySelector('input,select,textarea');
+  if (first) setTimeout(() => first.focus(), 120);
+}
+function closeDialog(id) {
+  document.getElementById('modal-' + id)?.close();
+}
+// Light-dismiss: click on the backdrop (the dialog element itself) closes it.
+document.querySelectorAll('.modal-dialog').forEach(d => {
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+});
+
+/* ─── Form submit → reusable confirmation dialog ──────────── */
+function handleSubmit(e, fromDialog, title, msg) {
+  e.preventDefault();
+  if (fromDialog) closeDialog(fromDialog);
+  document.getElementById('confirm-title').textContent = title;
+  document.getElementById('confirm-msg').textContent = msg;
+  e.target.reset();
+  openDialog('confirm');
+}
+
+/* ─── Scroll reveals ──────────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-clip').forEach(el => revealObserver.observe(el));
+
+/* ─── Count-up animation ──────────────────────────────────── */
+function countUp(el, target, duration, suffix) {
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target) + (suffix || '');
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.target, 10);
+    if (!isNaN(target)) {
+      countUp(el, target, 1400);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count], .pr-counter').forEach(el => {
+  if (el.classList.contains('pr-counter')) {
+    el.dataset.target = el.dataset.target || el.textContent.trim();
+  }
+  countObserver.observe(el);
+});
+
+/* ─── PR Calculator ───────────────────────────────────────── */
+const PCT_PROTOCOLS = [
+  { pct: 45, label: 'Light Dynamic',     purpose: '~3x5 @ 45% - GPP Speed' },
+  { pct: 50, label: 'Speed (Bands)',      purpose: '9x3 @ 50% - Dynamic Effort primary' },
+  { pct: 55, label: 'Speed (Chains)',     purpose: '8x3 @ 55% - Transition load' },
+  { pct: 60, label: 'Dynamic Effort',     purpose: '12x2 @ 60% - Classic DE protocol' },
+  { pct: 65, label: 'Submaximal',         purpose: '5x2 @ 65% - Heavy dynamic' },
+  { pct: 70, label: 'Near Maximal',       purpose: '3x1 @ 70% - Bridge to ME work' },
+  { pct: 75, label: 'Heavy Single',       purpose: '1x1 @ 75% - Max effort threshold' },
+  { pct: 80, label: 'Max Effort Range',   purpose: '1x1 @ 80% - Competition prep' },
+  { pct: 90, label: 'Competition Attempt',purpose: '1x1 @ 90% - Peak single' },
+];
+
+function calcRM(weight, reps) {
+  if (reps < 1) return { epley: weight, brzycki: weight };
+  const epley = weight * (1 + reps / 30);
+  const brzycki = reps === 1 ? weight : weight * (36 / (37 - Math.min(reps, 36)));
+  return { epley: Math.round(epley), brzycki: Math.round(brzycki) };
+}
+
+function updateCalc() {
+  const weight = parseFloat(document.getElementById('calc-weight').value) || 0;
+  const reps   = parseInt(document.getElementById('calc-reps').value, 10) || 1;
+  const { epley, brzycki } = calcRM(weight, reps);
+
+  document.getElementById('calc-epley').innerHTML   = epley   + '<span class="calc-rm-unit">kg</span>';
+  document.getElementById('calc-brzycki').innerHTML = brzycki + '<span class="calc-rm-unit">kg</span>';
+
+  const rm = epley;
+  const table = document.getElementById('pct-table');
+  const rows = PCT_PROTOCOLS.map(p => {
+    const load = Math.round(rm * p.pct / 100);
+    return `<div class="pct-row">
+      <div class="pct-val">${p.pct}%</div>
+      <div class="pct-load">${load}kg</div>
+      <div>
+        <div class="pct-protocol">${p.label}</div>
+        <div class="pct-purpose">${p.purpose}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Keep the header, replace only rows
+  const header = table.querySelector('.pct-table-head');
+  table.innerHTML = '';
+  table.appendChild(header);
+  table.insertAdjacentHTML('beforeend', rows);
+}
+
+// Init calculator on load
+document.addEventListener('DOMContentLoaded', updateCalc);
+
+/* ─── Reduced motion ──────────────────────────────────────── */
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.reveal, .reveal-clip').forEach(el => {
+    el.style.transition = 'none';
+    el.classList.add('visible');
+  });
+  document.querySelectorAll('[style*="animation"]').forEach(el => {
+    el.style.animation = 'none';
+  });
+}
+</script>
+</body>
+</html>

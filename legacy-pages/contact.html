@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<!-- ============ SEO ============ -->
+<title>Contact &amp; Book a Session | The Sweatt Shop, Loveland OH</title>
+<meta name="description" content="Book a strength training session at The Sweatt Shop, 123 Iron Street, Loveland, OH 45140. Open 4AM–10PM daily. Send a message and we'll respond.">
+<link rel="canonical" href="https://thesweattshop.com/contact.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact &amp; Book a Session | The Sweatt Shop">
+<meta property="og:description" content="123 Iron Street, Loveland, OH. Open 4AM–10PM daily. Book your session.">
+<meta property="og:url" content="https://thesweattshop.com/contact.html">
+<meta property="og:image" content="https://thesweattshop.com/images/contact-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ============================= -->
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"HealthClub","name":"The Sweatt Shop",
+  "url":"https://thesweattshop.com/contact.html","telephone":"+1-513-000-0000",
+  "image":"https://thesweattshop.com/images/contact-hero.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"123 Iron Street","addressLocality":"Loveland","addressRegion":"OH","postalCode":"45140","addressCountry":"US"},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"04:00","closes":"22:00"}]
+}
+</script>
+
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: { extend: {
+      colors: {
+        "surface-container":"#111111","surface-container-lowest":"#0e0e0e","surface-container-low":"#1b1b1b",
+        "primary":"#ffb3af","outline":"#333333","background":"#000000","surface":"#131313",
+        "pitch-black":"#000000","blood-red":"#b00020","text-primary":"#FFFFFF","text-secondary":"#A1A1A1",
+        "on-surface":"#e2e2e2","on-surface-variant":"#A1A1A1"
+      },
+      spacing: { "margin-desktop":"64px","margin-safe":"32px","gutter":"24px","stack-sm":"16px","stack-md":"48px","stack-lg":"96px" },
+      fontFamily: { "display":["Anton"], "body":["Inter"] },
+      fontSize: {
+        "label-caps":["12px",{"lineHeight":"1.0","letterSpacing":"0.1em","fontWeight":"700"}],
+        "label-lg":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"700"}],
+        "body-lg":["18px",{"lineHeight":"1.6"}],
+        "headline-lg-mobile":["32px",{"lineHeight":"1.1"}],
+        "headline-lg":["48px",{"lineHeight":"1.1"}],
+        "display-lg":["120px",{"lineHeight":"1.0","letterSpacing":"-0.04em"}]
+      }
+    } }
+  }
+</script>
+<style>
+  body { background-color:#000; color:#fff; overflow-x:hidden; }
+  ::selection { background:#b00020; color:#fff; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48; }
+  .brutalist-map { filter:grayscale(1) contrast(1.5) invert(1); }
+</style>
+</head>
+
+<body class="font-body antialiased bg-pitch-black text-text-primary">
+
+<!-- ===================== NAV ===================== -->
+<nav class="fixed top-0 w-full z-50 border-b-4 border-blood-red bg-pitch-black h-20 md:h-24 flex justify-between items-center px-4 md:px-8">
+  <a href="index.html" class="font-display text-2xl md:text-headline-lg text-blood-red whitespace-nowrap uppercase">THE SWEATT SHOP</a>
+  <div class="hidden md:flex gap-5 lg:gap-8 items-center whitespace-nowrap">
+    <a class="text-text-primary text-base uppercase hover:text-blood-red transition-colors px-1" href="index.html">HOME</a>
+    <a class="text-text-primary text-base uppercase hover:text-blood-red transition-colors px-1" href="training.html">TRAINING</a>
+    <a class="text-text-primary text-base uppercase hover:text-blood-red transition-colors px-1" href="coaches.html">COACHES</a>
+    <a class="text-text-primary text-base uppercase hover:text-blood-red transition-colors px-1" href="results.html">RESULTS</a>
+    <a class="text-blood-red font-bold border-b-2 border-blood-red text-base uppercase px-1" href="contact.html">CONTACT</a>
+  </div>
+  <a href="#contact-form" class="hidden sm:flex items-center bg-blood-red text-white font-display px-4 lg:px-6 py-3 text-base border-b-4 border-black active:translate-y-1 transition-transform uppercase">BOOK A SESSION</a>
+  <button id="menu-btn" class="md:hidden text-blood-red p-2 border-2 border-blood-red" aria-label="Open menu" aria-expanded="false">
+    <span class="material-symbols-outlined align-middle">menu</span>
+  </button>
+</nav>
+<div id="mobile-menu" class="hidden fixed top-20 left-0 w-full z-40 bg-pitch-black border-b-4 border-blood-red md:hidden flex-col">
+  <a class="text-white uppercase px-6 py-4 border-b border-outline" href="index.html">HOME</a>
+  <a class="text-white uppercase px-6 py-4 border-b border-outline" href="training.html">TRAINING</a>
+  <a class="text-white uppercase px-6 py-4 border-b border-outline" href="coaches.html">COACHES</a>
+  <a class="text-white uppercase px-6 py-4 border-b border-outline" href="results.html">RESULTS</a>
+  <a class="text-blood-red font-bold uppercase px-6 py-4 border-b border-outline" href="contact.html">CONTACT</a>
+</div>
+<!-- ============================================== -->
+
+<main class="pt-20 md:pt-24">
+
+  <!-- Hero -->
+  <section class="min-h-[480px] md:min-h-[560px] flex flex-col justify-center px-4 md:px-8 py-20 border-b-4 border-blood-red relative overflow-hidden">
+    <img src="images/contact-hero.jpg" alt="Industrial powerlifting gym with stacked iron plates" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale contrast-150" loading="eager" width="1280" height="720">
+    <div class="relative z-10">
+      <h1 class="font-display text-5xl md:text-display-lg leading-none uppercase">Get Stronger<br><span class="text-blood-red">Or Get Out.</span></h1>
+    </div>
+  </section>
+
+  <!-- Form + Info -->
+  <section class="grid grid-cols-1 md:grid-cols-12 w-full border-b-4 border-blood-red">
+    <!-- Form -->
+    <div id="contact-form" class="md:col-span-7 p-6 md:p-8 border-b-4 md:border-b-0 md:border-r-4 border-blood-red bg-surface-container-lowest scroll-mt-28">
+      <div class="mb-8">
+        <h2 class="font-display text-headline-lg-mobile md:text-headline-lg uppercase text-blood-red">Say It.</h2>
+        <p class="text-body-lg text-text-secondary max-w-prose mt-4">No excuses. Drop your details and your mission below. We will respond.</p>
+      </div>
+
+      <!-- Netlify form: works with zero backend once deployed to Netlify -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-4">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="flex flex-col">
+          <label for="name" class="font-label-lg uppercase mb-1 text-blood-red">Name</label>
+          <input id="name" name="name" type="text" required placeholder="WHO ARE YOU?" class="bg-pitch-black border-2 border-white border-b-4 text-white p-4 focus:border-blood-red focus:outline-none transition-colors">
+        </div>
+        <div class="flex flex-col">
+          <label for="email" class="font-label-lg uppercase mb-1 text-blood-red">Email</label>
+          <input id="email" name="email" type="email" required placeholder="WHERE DO WE REPLY?" class="bg-pitch-black border-2 border-white border-b-4 text-white p-4 focus:border-blood-red focus:outline-none transition-colors">
+        </div>
+        <div class="flex flex-col">
+          <label for="message" class="font-label-lg uppercase mb-1 text-blood-red">Mission</label>
+          <textarea id="message" name="message" rows="4" required placeholder="WHAT DO YOU WANT?" class="bg-pitch-black border-2 border-white border-b-4 text-white p-4 focus:border-blood-red focus:outline-none transition-colors resize-none"></textarea>
+        </div>
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-pitch-black border-2 border-blood-red text-blood-red font-display text-headline-lg-mobile uppercase py-6 hover:bg-blood-red hover:text-white transition-all active:translate-y-1">Send Message</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Info -->
+    <div class="md:col-span-5 flex flex-col">
+      <div class="p-6 md:p-8 border-b-4 border-blood-red flex-1 bg-blood-red text-white">
+        <div class="flex items-start gap-4 mb-6">
+          <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'FILL' 1">location_on</span>
+          <div>
+            <h2 class="font-display text-headline-lg-mobile uppercase">Loveland, Ohio</h2>
+            <address class="not-italic uppercase mt-2 text-body-lg">123 Iron Street<br>Loveland, OH 45140</address>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-4xl" style="font-variation-settings:'FILL' 1">schedule</span>
+          <div>
+            <h3 class="font-label-lg uppercase text-white/80">Operations</h3>
+            <p class="text-body-lg uppercase">4:00 AM – 10:00 PM Daily</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative w-full aspect-square md:aspect-auto md:flex-1 bg-surface-container overflow-hidden">
+        <img src="images/contact-map.jpg" alt="Map of The Sweatt Shop location in Loveland, Ohio" class="absolute inset-0 w-full h-full object-cover brutalist-map" loading="lazy" width="640" height="640">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="relative z-10 p-4 border-4 border-blood-red bg-pitch-black flex items-center gap-2">
+            <span class="material-symbols-outlined text-blood-red text-3xl">fitness_center</span>
+            <span class="font-display text-2xl uppercase">HQ Found</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout -->
+  <section class="px-4 md:px-8 py-20 border-b-4 border-blood-red text-center">
+    <h2 class="font-display text-headline-lg-mobile md:text-headline-lg uppercase mb-12 text-blood-red">No Excuses. No Weakness.</h2>
+    <div class="flex flex-wrap justify-center gap-12">
+      <div class="flex flex-col items-center"><span class="font-display text-5xl md:text-headline-lg text-blood-red">100%</span><span class="font-label-lg uppercase mt-2">Commitment</span></div>
+      <div class="flex flex-col items-center"><span class="font-display text-5xl md:text-headline-lg text-blood-red">0%</span><span class="font-label-lg uppercase mt-2">Ego</span></div>
+      <div class="flex flex-col items-center"><span class="font-display text-5xl md:text-headline-lg text-blood-red">24/7</span><span class="font-label-lg uppercase mt-2">Intensity</span></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-pitch-black py-12 md:py-stack-md px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-stack-sm border-t-4 border-blood-red text-center md:text-left">
+  <div class="font-display text-headline-lg-mobile text-blood-red whitespace-nowrap uppercase">THE SWEATT SHOP</div>
+  <div class="flex flex-wrap justify-center gap-4 md:gap-stack-sm">
+    <a class="uppercase text-text-secondary hover:text-blood-red transition-colors" href="https://www.instagram.com/" rel="noopener">Instagram</a>
+    <a class="uppercase text-text-secondary hover:text-blood-red transition-colors" href="https://www.youtube.com/" rel="noopener">YouTube</a>
+    <a class="uppercase text-text-secondary hover:text-blood-red transition-colors" href="https://www.facebook.com/" rel="noopener">Facebook</a>
+    <a class="uppercase text-text-secondary hover:text-blood-red transition-colors" href="index.html">Home</a>
+  </div>
+  <div class="uppercase text-text-secondary text-center md:text-right">&copy; 2026 The Sweatt Shop. No excuses.</div>
+</footer>
+
+<script>
+  const mb=document.getElementById('menu-btn'),mm=document.getElementById('mobile-menu');
+  if(mb&&mm)mb.addEventListener('click',()=>{const o=mm.classList.toggle('hidden')===false;mm.classList.toggle('flex',o);mb.setAttribute('aria-expanded',o);});
+</script>
+</body>
+</html>

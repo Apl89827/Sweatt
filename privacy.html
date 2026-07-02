@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy: Sweatt Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand:         oklch(70% 0.20 132);
+  --brand-strong:  oklch(76% 0.22 132);
+  --brand-deep:    oklch(44% 0.14 132);
+  --on-brand:      #ffffff;
+  --black:     #000;
+  --near:      #060807;
+  --surface:   #0A0B0A;
+  --border:    #232622;
+  --border-2:  #1a1d1a;
+  --muted:     #A1A6A1;
+  --white:     #ffffff;
+  --font-d: 'Anton', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-m);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ─── Nav (matches main site) ────────────────────────────── */
+.nav{position:sticky;top:0;z-index:30;background:rgba(0,0,0,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;transition:opacity .15s var(--ease-out)}
+.brand:hover{opacity:.88}
+.nav-logo-img{height:56px;width:auto;display:block;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{position:relative;padding:8px 10px;font-size:10.5px;font-weight:700;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;transition:color .2s var(--ease-out)}
+.nav-link:hover{color:var(--white)}
+.nav-cta{padding:10px 22px;background:var(--brand-deep);color:var(--on-brand);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--brand-deep);display:inline-block;transition:background .15s var(--ease-out),transform .16s var(--ease-out)}
+.nav-cta:hover{background:var(--brand)}
+.nav-cta:active{transform:scale(0.97)}
+.nav-burger{display:none;background:none;border:1px solid var(--border);color:var(--white);padding:9px 11px;font-size:15px;line-height:1;cursor:pointer;transition:border-color .15s}
+.nav-burger:hover{border-color:var(--muted)}
+.nav-mobile{display:none;border-top:1px solid var(--border);background:var(--surface);padding:12px 24px 20px;flex-direction:column;gap:2px}
+.nav-mobile.open{display:flex}
+.nav-mobile .nav-link{padding:12px 4px;font-size:12px}
+@media(max-width:1180px){
+  .nav-links,.nav-cta{display:none}
+  .nav-burger{display:block}
+}
+
+/* ─── Legal content ───────────────────────────────────────── */
+.legal-main{max-width:760px;margin:0 auto;padding:64px 24px 96px}
+.legal-eyebrow{font-size:10.5px;letter-spacing:.3em;color:var(--brand);text-transform:uppercase;margin-bottom:16px}
+.legal-title{font-family:var(--font-d);font-weight:400;font-size:clamp(32px,5vw,52px);letter-spacing:.02em;text-transform:uppercase;color:var(--white)}
+.legal-updated{margin-top:14px;font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.legal-body{margin-top:48px}
+.legal-body h2{font-family:var(--font-d);font-weight:400;font-size:clamp(18px,2.2vw,24px);letter-spacing:.02em;text-transform:uppercase;color:var(--brand);margin:40px 0 14px}
+.legal-body h2:first-child{margin-top:0}
+.legal-body p{font-size:13px;line-height:1.85;color:var(--muted);margin-bottom:14px;max-width:64ch}
+.legal-body ul{margin:0 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.legal-body li{font-size:13px;line-height:1.75;color:var(--muted)}
+.legal-body a{color:var(--brand);text-decoration:underline;text-underline-offset:2px}
+.legal-body strong{color:var(--white);font-weight:700}
+
+/* ─── Footer (matches main site) ─────────────────────────── */
+.footer{margin-top:88px;border-top:1px solid var(--border);padding:48px 24px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding-bottom:28px;border-bottom:1px solid var(--border-2)}
+.footer-tagline{margin-top:4px;font-size:9.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.footer-links{display:flex;gap:22px;font-size:10.5px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.footer-link{transition:color .15s var(--ease-out)}
+.footer-link:hover{color:var(--brand)}
+.footer-legal{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:22px}
+.footer-copy{font-size:9.5px;letter-spacing:.08em;color:#555;text-transform:uppercase}
+.footer-legal-links{display:flex;gap:18px}
+.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#555}
+.footer-legal-links .footer-link:hover{color:var(--brand)}
+.footer-legal-links .footer-link[aria-current="page"]{color:var(--brand)}
+@media(max-width:600px){
+  .footer-top{flex-direction:column;gap:16px}
+  .footer-legal{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+/* ─── Focus visibility (ADA) ──────────────────────────────── */
+a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--brand);color:var(--black);padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;z-index:1000" onfocus="this.style.left='16px';this.style.top='16px'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="sweatt-shop-redesign.html" class="brand" aria-label="Sweatt Shop home">
+      <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img">
+    </a>
+    <div class="nav-links" role="list">
+      <a href="sweatt-shop-redesign.html#home"     class="nav-link" role="listitem">Home</a>
+      <a href="sweatt-shop-redesign.html#training" class="nav-link" role="listitem">Training</a>
+      <a href="sweatt-shop-redesign.html#pricing"  class="nav-link" role="listitem">Pricing</a>
+      <a href="sweatt-shop-redesign.html#lineage"  class="nav-link" role="listitem">Lineage</a>
+      <a href="sweatt-shop-redesign.html#records"  class="nav-link" role="listitem">Records</a>
+      <a href="sweatt-shop-redesign.html#faq"      class="nav-link" role="listitem">FAQ</a>
+      <a href="sweatt-shop-redesign.html#contact"  class="nav-link" role="listitem">Contact</a>
+    </div>
+    <a href="sweatt-shop-redesign.html#contact" class="nav-cta">BOOK A SESSION</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile" role="list">
+    <a href="sweatt-shop-redesign.html#home"     class="nav-link">Home</a>
+    <a href="sweatt-shop-redesign.html#training" class="nav-link">Training</a>
+    <a href="sweatt-shop-redesign.html#pricing"  class="nav-link">Pricing</a>
+    <a href="sweatt-shop-redesign.html#lineage"  class="nav-link">Lineage</a>
+    <a href="sweatt-shop-redesign.html#records"  class="nav-link">Records</a>
+    <a href="sweatt-shop-redesign.html#faq"      class="nav-link">FAQ</a>
+    <a href="sweatt-shop-redesign.html#contact"  class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<main id="main" class="legal-main">
+  <div class="legal-eyebrow">Legal</div>
+  <h1 class="legal-title">Privacy Policy</h1>
+  <p class="legal-updated">Last updated: January 1, 2026</p>
+
+  <div class="legal-body">
+    <h2>Overview</h2>
+    <p>Sweatt Shop ("we," "us," "our") operates a strength and conjugate training facility in Blue Ash, Ohio. This policy explains what information we collect through this website, why we collect it, and how you can control it.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly when you use our booking form, athlete intake application, or contact form:</p>
+    <ul>
+      <li><strong>Identity and contact details:</strong> name, email address, and (where provided) age.</li>
+      <li><strong>Training information:</strong> lift numbers, training experience, injury history, and performance goals, when submitted through the intake application.</li>
+      <li><strong>Message content:</strong> anything you write in the contact or goal fields.</li>
+    </ul>
+    <p>We do not use cookies for advertising or run third-party ad tracking on this site.</p>
+
+    <h2>How We Use Information</h2>
+    <p>We use the information you submit to:</p>
+    <ul>
+      <li>Schedule and confirm training sessions and evaluations.</li>
+      <li>Review athlete intake applications and build appropriate programming.</li>
+      <li>Respond to questions submitted through the contact form.</li>
+    </ul>
+    <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+
+    <h2>Data Sharing</h2>
+    <p>We do not share your information with third parties except where necessary to operate the gym (for example, a scheduling or email service provider acting on our behalf) or where required by law.</p>
+
+    <h2>Data Retention</h2>
+    <p>We retain submitted information only as long as needed to respond to your inquiry or maintain your membership and training records, after which it is deleted or anonymized.</p>
+
+    <h2>Your Rights</h2>
+    <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us using the details below.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>This site is not directed to children under 13. Athlete intake for minors requires a parent or guardian to submit the application on the minor's behalf.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy from time to time. The "last updated" date above reflects the most recent revision.</p>
+
+    <h2>Contact Us</h2>
+    <p>Questions about this policy or your data can be sent through our <a href="sweatt-shop-redesign.html#contact">contact form</a>.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="sweatt-shop-redesign.html" class="brand" aria-label="Sweatt Shop home">
+          <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img">
+        </a>
+        <div class="footer-tagline">Strength for Every Body. Blue Ash, Ohio.</div>
+      </div>
+      <nav class="footer-links" aria-label="Social media links">
+        <a href="https://instagram.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Instagram</a>
+        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noreferrer" class="footer-link">YouTube</a>
+        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Facebook</a>
+      </nav>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-copy">&#169; 2026 Sweatt Shop. Blue Ash, OH. All Rights Reserved.</p>
+      <nav class="footer-legal-links" aria-label="Legal">
+        <a href="privacy.html" class="footer-link" aria-current="page">Privacy Policy</a>
+        <a href="accessibility.html" class="footer-link">Accessibility Statement</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+const burger = document.getElementById('nav-burger');
+const mobileNav = document.getElementById('nav-mobile');
+burger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>
