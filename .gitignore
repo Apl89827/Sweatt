@@ -1,0 +1,20 @@
+# Tooling / plugin folders (not part of the site)
+.claude/
+.agents/
+skills/
+skills-lock.json
+taste-skill/
+vercel-skills/
+vercel-agent-skills/
+impeccable/
+claude design product/
+
+# Node
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Working docs
+REFINEMENT-PROMPT.md
