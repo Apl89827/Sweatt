@@ -7,6 +7,7 @@ Static website files for the Sweatt Shop redesign.
 - `index.html` is the homepage and contains the current redesign.
 - `sweatt-shop-redesign.html` is kept so the old local URL still works.
 - `images/` contains the site image assets.
+- `js/` contains the site scripts (`main.js` for the homepage, `legal.js` for the legal pages) — external so the Content-Security-Policy can block inline scripts.
 - `privacy.html`, `accessibility.html`, `404.html`, `robots.txt`, and `sitemap.xml` are supporting site pages/files.
 - `legacy-pages/` contains older page drafts that were mixed into the desktop folder. They are not part of the current published site.
 

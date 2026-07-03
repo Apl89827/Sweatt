@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thesweattshop.com/sitemap.xml
+Sitemap: https://sweattshop.com/sitemap.xml
