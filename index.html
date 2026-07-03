@@ -6,12 +6,24 @@
 <title>Sweatt Shop: Cincinnati's Westside-Certified Strength Facility</title>
 <meta name="description" content="Westside-certified strength training in Blue Ash, Ohio. Conjugate method coaching for every athlete: powerlifters, sport performance, tactical, and everyday lifters. First session free, no contracts.">
 <meta name="theme-color" content="#0d110e">
+<link rel="canonical" href="https://sweattshop.com/">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://sweattshop.com/">
+<meta property="og:site_name" content="The Sweatt Shop">
 <meta property="og:title" content="Sweatt Shop: Cincinnati's Westside-Certified Strength Facility">
 <meta property="og:description" content="Conjugate method coaching for every athlete. 20+ years of proven results. First session free, no contracts.">
-<meta property="og:image" content="images/logo.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://sweattshop.com/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sweatt Shop logo over a lifter setting up for a heavy deadlift">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sweatt Shop: Cincinnati's Westside-Certified Strength Facility">
+<meta name="twitter:description" content="Conjugate method coaching for every athlete. 20+ years of proven results. First session free, no contracts.">
+<meta name="twitter:image" content="https://sweattshop.com/images/og-card.jpg">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="image" href="images/results-hero.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -1004,7 +1016,7 @@ body::before{
 .form-input{height:48px}
 .form-textarea{padding:14px;resize:none}
 .form-input:focus,.form-textarea:focus{border-color:var(--brand)}
-.form-input::placeholder,.form-textarea::placeholder{color:#555;text-transform:uppercase}
+.form-input::placeholder,.form-textarea::placeholder{color:#7b807b;text-transform:uppercase}
 
 .contact-sidebar{display:flex;flex-direction:column;gap:22px}
 .contact-info{
@@ -1093,10 +1105,10 @@ body::before{
   padding-top:22px;
 }
 .footer-copy{
-  font-size:9.5px;letter-spacing:.08em;color:#555;text-transform:uppercase;
+  font-size:9.5px;letter-spacing:.08em;color:#8a8f8a;text-transform:uppercase;
 }
 .footer-legal-links{display:flex;gap:18px}
-.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#555}
+.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#8a8f8a}
 .footer-legal-links .footer-link:hover{color:var(--brand)}
 
 @media(max-width:600px){
@@ -1140,6 +1152,13 @@ body::before{
 }
 .modal-lifts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 
+/* ─── Mobile: tap targets + prevent iOS input zoom ────────── */
+@media(max-width:768px){
+  .form-input,.form-textarea,.calc-input,.calc-select{font-size:16px}
+  .calc-input,.calc-select{height:44px}
+  .footer-link,.hours-directions{display:inline-block;padding-top:16px;padding-bottom:16px}
+}
+
 /* ─── Reduced motion ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1152,6 +1171,98 @@ body::before{
   .marquee-track { animation: none !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "@id": "https://sweattshop.com/#gym",
+  "name": "The Sweatt Shop",
+  "description": "Westside Barbell-certified strength training facility in Blue Ash, Ohio. Conjugate method coaching for powerlifters, sport performance, tactical athletes, and everyday lifters.",
+  "url": "https://sweattshop.com/",
+  "telephone": "+15137209981",
+  "image": "https://sweattshop.com/images/og-card.jpg",
+  "logo": "https://sweattshop.com/images/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4627 Carlynn Dr, Unit A",
+    "addressLocality": "Blue Ash",
+    "addressRegion": "OH",
+    "postalCode": "45241",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.2478,
+    "longitude": -84.3855
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59",
+      "description": "24/7 keycard access for members"
+    }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Shane Sweatt",
+    "jobTitle": "Founder / Master-Certified Westside Barbell Coach"
+  },
+  "sameAs": [
+    "https://instagram.com/sweattshopcincinnati"
+  ],
+  "priceRange": "$89-$219/month"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need experience to start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your first session is an intake: a coach assesses your movement, history, and goals before writing anything. Beginners and competitive lifters train on the same floor, just different programming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you require contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No contracts on any membership tier, including Coached and Private Lab. Cancel or pause with 30 days' notice, no cancellation fee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I bring to my first session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Closed-toe shoes, clothes you can move in, and water. If you have a recent injury history or medical restriction, bring that too, it changes how your first cycle is written."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is private coaching available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Private Lab is fully 1-on-1 floor time, billed per session, for athletes who need privacy, a flexible schedule, or programming built around a specific event or injury."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I train around an injury?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is most of what the conjugate method is built for. Tell your coach what hurts and what your doctor or PT has cleared, and your program is written around it, not in spite of it."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1183,18 +1294,18 @@ body::before{
       <a href="#faq"      class="nav-link" role="listitem">FAQ</a>
       <a href="#contact"  class="nav-link" role="listitem">Contact</a>
     </div>
-    <button class="nav-cta" onclick="openDialog('booking')" aria-label="Book a session">BOOK A SESSION</button>
+    <button class="nav-cta" data-open-dialog="booking" aria-label="Book a session">BOOK A SESSION</button>
     <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
   </div>
   <div class="nav-mobile" id="nav-mobile" role="list">
-    <a href="#home"     class="nav-link" onclick="closeNav()">Home</a>
-    <a href="#training" class="nav-link" onclick="closeNav()">Training</a>
-    <a href="#pricing"  class="nav-link" onclick="closeNav()">Pricing</a>
-    <a href="#lineage"  class="nav-link" onclick="closeNav()">Lineage</a>
-    <a href="#records"  class="nav-link" onclick="closeNav()">Records</a>
-    <a href="#faq"      class="nav-link" onclick="closeNav()">FAQ</a>
-    <a href="#contact"  class="nav-link" onclick="closeNav()">Contact</a>
-    <button class="btn-primary" style="margin-top:8px" onclick="closeNav();openDialog('booking')">BOOK A SESSION</button>
+    <a href="#home"     class="nav-link">Home</a>
+    <a href="#training" class="nav-link">Training</a>
+    <a href="#pricing"  class="nav-link">Pricing</a>
+    <a href="#lineage"  class="nav-link">Lineage</a>
+    <a href="#records"  class="nav-link">Records</a>
+    <a href="#faq"      class="nav-link">FAQ</a>
+    <a href="#contact"  class="nav-link">Contact</a>
+    <button class="btn-primary" style="margin-top:8px" data-open-dialog="booking">BOOK A SESSION</button>
   </div>
 </nav>
 
@@ -1203,7 +1314,7 @@ body::before{
 <!-- ─── Hero ──────────────────────────────────────────────── -->
 <section id="home" class="hero hero-shell" aria-labelledby="hero-heading">
   <div class="hero-bg" aria-hidden="true">
-    <img src="images/results-hero.jpg" alt="" loading="eager">
+    <img src="images/results-hero.jpg" alt="" width="1920" height="1280" loading="eager" fetchpriority="high">
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-grain" aria-hidden="true"></div>
@@ -1217,7 +1328,7 @@ body::before{
     </h1>
     <p class="hero-sub">The Conjugate Method. The system that built the world's strongest lifters, applied to every athlete who walks in.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+      <button class="btn-primary" data-open-dialog="booking">BOOK A FREE SESSION</button>
       <a href="#training" class="btn-ghost">LEARN THE METHOD</a>
     </div>
   </div>
@@ -1253,7 +1364,7 @@ body::before{
       <div class="offer-band-title">First Session On Us. No Contracts, No Catch.</div>
       <div class="offer-band-sub">Walk in, meet a Westside-certified coach, leave with a plan.</div>
     </div>
-    <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+    <button class="btn-primary" data-open-dialog="booking">BOOK A FREE SESSION</button>
   </div>
 </div>
 
@@ -1268,7 +1379,7 @@ body::before{
     <!-- Hero card: Strength Athletes -->
     <div class="method-card method-card--hero reveal">
       <div class="method-img">
-        <img src="images/method-strength.jpg" alt="Lifter setting up for a heavy deadlift on a dark gym floor" loading="lazy">
+        <img src="images/method-strength.jpg" alt="Lifter setting up for a heavy deadlift on a dark gym floor" width="1400" height="934" loading="lazy">
       </div>
       <div class="method-body">
         <h3 class="method-name">Strength Athletes</h3>
@@ -1279,7 +1390,7 @@ body::before{
     <!-- Sport Performance -->
     <div class="method-card reveal" style="transition-delay:.08s">
       <div class="method-img">
-        <img src="images/method-sport.jpg" alt="Sprinter in the starting blocks on a track" loading="lazy">
+        <img src="images/method-sport.jpg" alt="Sprinter in the starting blocks on a track" width="1400" height="934" loading="lazy">
       </div>
       <div class="method-body">
         <h3 class="method-name">Sport Performance</h3>
@@ -1290,7 +1401,7 @@ body::before{
     <!-- Tactical -->
     <div class="method-card reveal" style="transition-delay:.14s">
       <div class="method-img">
-        <img src="images/method-tactical.jpg" alt="Athlete driving battle ropes in an industrial training space" loading="lazy">
+        <img src="images/method-tactical.jpg" alt="Athlete driving battle ropes in an industrial training space" width="1400" height="934" loading="lazy">
       </div>
       <div class="method-body">
         <h3 class="method-name">Tactical &amp; First Responders</h3>
@@ -1301,7 +1412,7 @@ body::before{
     <!-- Everyday Strength -->
     <div class="method-card method-card--wide reveal" style="transition-delay:.2s">
       <div class="method-img">
-        <img src="images/method-everyday.jpg" alt="Two members pressing kettlebells overhead during a coached session" loading="lazy">
+        <img src="images/method-everyday.jpg" alt="Two members pressing kettlebells overhead during a coached session" width="1400" height="788" loading="lazy">
       </div>
       <div class="method-body">
         <h3 class="method-name">Everyday Strength</h3>
@@ -1345,7 +1456,7 @@ body::before{
         <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>Monthly PR testing</div>
         <div class="price-feature"><div class="price-feature-dot" aria-hidden="true"></div>No contract</div>
       </div>
-      <button class="btn-primary" onclick="openDialog('booking')">BOOK A FREE SESSION</button>
+      <button class="btn-primary" data-open-dialog="booking">BOOK A FREE SESSION</button>
     </div>
 
     <div class="price-card reveal" style="transition-delay:.16s">
@@ -1403,7 +1514,7 @@ body::before{
     </div>
 
     <div class="training-img reveal" style="transition-delay:.1s">
-      <img src="images/training-chalk.jpg" alt="Chalk-covered hands gripping a barbell" loading="lazy">
+      <img src="images/training-chalk.jpg" alt="Chalked hand throwing off a cloud of lifting chalk against a black background" width="1200" height="1200" loading="lazy">
     </div>
   </div>
 
@@ -1446,7 +1557,7 @@ body::before{
   <div class="founder-grid">
     <div class="coach-card founder-card reveal">
       <div class="coach-img founder-img">
-        <img src="images/shane-games.jpg" alt="Shane Sweatt coaching a lifter on the CrossFit Games competition floor" loading="lazy">
+        <img src="images/shane-games.jpg" alt="Shane Sweatt coaching a lifter on the CrossFit Games competition floor" width="1122" height="1402" loading="lazy">
         <div class="coach-badge">Founder / Master Westside Barbell Coach</div>
       </div>
       <div class="coach-body">
@@ -1473,19 +1584,19 @@ body::before{
 
   <div class="career-strip reveal" role="list" aria-label="Shane Sweatt career highlights">
     <figure class="career-cell" role="listitem">
-      <img src="images/shane-westside.jpg" alt="Shane Sweatt sitting with Louie Simmons at Westside Barbell" loading="lazy">
+      <img src="images/shane-westside.jpg" alt="Shane Sweatt sitting with Louie Simmons at Westside Barbell" width="1200" height="1187" loading="lazy">
       <figcaption class="career-caption">With Louie Simmons at Westside Barbell</figcaption>
     </figure>
     <figure class="career-cell" role="listitem" style="transition-delay:.06s">
-      <img src="images/shane-coaching.jpg" alt="Shane Sweatt coaching a young athlete through a program on the gym floor" loading="lazy">
+      <img src="images/shane-coaching.jpg" alt="Shane Sweatt coaching a young athlete through a program on the gym floor" width="939" height="831" loading="lazy">
       <figcaption class="career-caption">20+ years on the gym floor</figcaption>
     </figure>
     <figure class="career-cell" role="listitem" style="transition-delay:.12s">
-      <img src="images/shane-olympian.jpg" alt="An Olympic medalist biting his medal" loading="lazy">
+      <img src="images/shane-olympian.jpg" alt="An Olympic medalist biting his medal" width="939" height="843" loading="lazy">
       <figcaption class="career-caption">Olympic medalists to first-time lifters</figcaption>
     </figure>
     <figure class="career-cell" role="listitem" style="transition-delay:.18s">
-      <img src="images/shane-tactical.jpg" alt="Shane Sweatt with two U.S. Border Patrol tactical operators in the gym" loading="lazy">
+      <img src="images/shane-tactical.jpg" alt="Shane Sweatt with two U.S. Border Patrol tactical operators in the gym" width="1200" height="822" loading="lazy">
       <figcaption class="career-caption">Special Forces &amp; federal law enforcement</figcaption>
     </figure>
   </div>
@@ -1493,7 +1604,7 @@ body::before{
   <div class="lineage-cta reveal">
     <h3 class="lineage-cta-title">Ready to Work?</h3>
     <p class="lineage-cta-sub">Stop wasting time with generic programming. Join the lineage.</p>
-    <button class="btn-primary" onclick="openDialog('application')">SUBMIT APPLICATION</button>
+    <button class="btn-primary" data-open-dialog="application">SUBMIT APPLICATION</button>
   </div>
 </section>
 
@@ -1621,7 +1732,7 @@ body::before{
     </div>
 
     <div class="metrics-img reveal" style="transition-delay:.1s">
-      <img src="images/results-williams.jpg" alt="Athlete performing a box jump" loading="lazy">
+      <img src="images/results-williams.jpg" alt="Athlete performing a box jump in the gym" width="1600" height="1200" loading="lazy">
       <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.9),transparent)">
         <div style="width:22px;height:3px;background:var(--brand);margin-bottom:6px"></div>
         <h4 style="font-family:var(--font-d);font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:var(--white)">Explosive Power</h4>
@@ -1642,7 +1753,7 @@ body::before{
         <div class="calc-inputs">
           <div>
             <label class="calc-label" for="calc-lift">Lift</label>
-            <select class="calc-select" id="calc-lift" onchange="updateCalc()">
+            <select class="calc-select" id="calc-lift">
               <option value="SQUAT">Squat</option>
               <option value="BENCH">Bench</option>
               <option value="DEADLIFT">Deadlift</option>
@@ -1651,11 +1762,11 @@ body::before{
           </div>
           <div>
             <label class="calc-label" for="calc-weight">Weight (kg)</label>
-            <input type="number" class="calc-input" id="calc-weight" min="1" value="100" onchange="updateCalc()" oninput="updateCalc()">
+            <input type="number" class="calc-input" id="calc-weight" min="1" value="100">
           </div>
           <div>
             <label class="calc-label" for="calc-reps">Reps</label>
-            <input type="number" class="calc-input" id="calc-reps" min="1" max="30" value="5" onchange="updateCalc()" oninput="updateCalc()">
+            <input type="number" class="calc-input" id="calc-reps" min="1" max="30" value="5">
           </div>
         </div>
         <div class="calc-result">
@@ -1687,7 +1798,7 @@ body::before{
 
   <div class="records-cta reveal">
     <h3 class="records-cta-title">Stop Guessing. Start Tracking.</h3>
-    <button class="btn-primary" onclick="openDialog('booking')">BOOK AN EVALUATION</button>
+    <button class="btn-primary" data-open-dialog="booking">BOOK AN EVALUATION</button>
   </div>
 </section>
 
@@ -1726,7 +1837,7 @@ body::before{
 <section id="contact" class="section" aria-labelledby="contact-heading">
   <div class="contact-banner">
     <div class="contact-banner-img">
-      <img src="images/contact-hero.jpg" alt="" role="presentation" loading="lazy">
+      <img src="images/contact-hero.jpg" alt="" role="presentation" width="1600" height="1198" loading="lazy">
     </div>
     <div class="contact-banner-overlay" aria-hidden="true"></div>
     <div class="contact-banner-content">
@@ -1741,18 +1852,20 @@ body::before{
       <p class="contact-sub">Tell us your name and your goal. We reply within one business day.</p>
       <div class="red-rule"></div>
 
-      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event, null, 'Message Sent', 'We have your details and your goal. Expect a reply within one business day.')" novalidate>
+      <form class="contact-form" id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="contact">
+        <p hidden aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div>
           <label class="form-label" for="c-name">Name</label>
-          <input type="text" class="form-input" id="c-name" placeholder="WHO ARE YOU?" required autocomplete="name">
+          <input type="text" class="form-input" id="c-name" name="name" placeholder="WHO ARE YOU?" required autocomplete="name">
         </div>
         <div>
           <label class="form-label" for="c-email">Email</label>
-          <input type="email" class="form-input" id="c-email" placeholder="WHERE DO WE REPLY?" required autocomplete="email">
+          <input type="email" class="form-input" id="c-email" name="email" placeholder="WHERE DO WE REPLY?" required autocomplete="email">
         </div>
         <div>
           <label class="form-label" for="c-mission">Your Mission / Intent</label>
-          <textarea class="form-textarea" id="c-mission" rows="4" placeholder="WHAT IS YOUR TARGET? (e.g. Add 50kg to total, elite power)" required></textarea>
+          <textarea class="form-textarea" id="c-mission" name="mission" rows="4" placeholder="WHAT IS YOUR TARGET? (e.g. Add 50kg to total, elite power)" required></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%">SEND MESSAGE</button>
       </form>
@@ -1782,7 +1895,7 @@ body::before{
         <div class="hours-row"><span>Saturday</span><span>7:00a &ndash; 4:00p</span></div>
         <div class="hours-row"><span>Sunday</span><span>Open Gym Only</span></div>
         <div class="hours-row"><span>Members</span><span>24 / 7 Access</span></div>
-        <a class="hours-directions" href="https://www.google.com/maps/dir/?api=1&destination=4627+Carlynn+Dr,+Blue+Ash,+OH+45241" target="_blank" rel="noreferrer">Get Directions &rarr;</a>
+        <a class="hours-directions" href="https://www.google.com/maps/dir/?api=1&destination=4627+Carlynn+Dr,+Blue+Ash,+OH+45241" target="_blank" rel="noopener noreferrer">Get Directions &rarr;</a>
       </div>
     </div>
   </div>
@@ -1802,9 +1915,9 @@ body::before{
         <div class="footer-tagline">Strength for Every Body. Blue Ash, Ohio.</div>
       </div>
       <nav class="footer-links" aria-label="Social media links">
-        <a href="https://instagram.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Instagram</a>
-        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noreferrer" class="footer-link">YouTube</a>
-        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Facebook</a>
+        <a href="https://instagram.com/sweattshopcincinnati" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">YouTube</a>
+        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
       </nav>
     </div>
     <div class="footer-legal">
@@ -1820,26 +1933,28 @@ body::before{
 <!-- ─── Booking Modal ──────────────────────────────────────── -->
 <dialog class="modal-dialog" id="modal-booking" aria-labelledby="booking-title">
   <div class="modal">
-    <button class="modal-close" onclick="closeDialog('booking')" aria-label="Close dialog">&#215;</button>
+    <button class="modal-close" data-close-dialog="booking" aria-label="Close dialog">&#215;</button>
     <h3 class="modal-title" id="booking-title">Book Your Free Session</h3>
     <p class="modal-sub">Intake Evaluation &amp; Private Session</p>
     <div class="modal-rule"></div>
 
-    <form class="modal-form" id="booking-form" onsubmit="handleSubmit(event, 'booking', 'Session Booked', 'Your free intake session is reserved. Check your email for confirmation and what to bring.')" novalidate>
+    <form class="modal-form" id="booking-form" name="booking" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="booking">
+      <p hidden aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="modal-row">
         <div>
           <label class="form-label" for="b-name">Name</label>
-          <input type="text" class="form-input" id="b-name" placeholder="NAME" required autocomplete="name">
+          <input type="text" class="form-input" id="b-name" name="name" placeholder="NAME" required autocomplete="name">
         </div>
         <div>
           <label class="form-label" for="b-email">Email</label>
-          <input type="email" class="form-input" id="b-email" placeholder="EMAIL" required autocomplete="email">
+          <input type="email" class="form-input" id="b-email" name="email" placeholder="EMAIL" required autocomplete="email">
         </div>
       </div>
       <div class="modal-row">
         <div>
           <label class="form-label" for="b-specialty">Specialty</label>
-          <select class="form-input calc-select" id="b-specialty" style="height:42px;cursor:pointer">
+          <select class="form-input calc-select" id="b-specialty" name="specialty" style="height:42px;cursor:pointer">
             <option value="POWERLIFTING">Powerlifting</option>
             <option value="SPORTS PERFORMANCE">Sports Performance</option>
             <option value="FOUNDATIONS">Foundations</option>
@@ -1848,7 +1963,7 @@ body::before{
         </div>
         <div>
           <label class="form-label" for="b-day">Session Day</label>
-          <select class="form-input calc-select" id="b-day" style="height:42px;cursor:pointer">
+          <select class="form-input calc-select" id="b-day" name="session-day" style="height:42px;cursor:pointer">
             <option value="MONDAY">Mon - Max Effort Squat/DL</option>
             <option value="WEDNESDAY">Wed - Max Effort Bench</option>
             <option value="FRIDAY">Fri - Dynamic Squat/DL</option>
@@ -1858,7 +1973,7 @@ body::before{
       </div>
       <div>
         <label class="form-label" for="b-goal">Primary Lift Goal</label>
-        <textarea class="form-textarea" id="b-goal" rows="2" placeholder="e.g. POWERLIFTING TOTAL, SPRINT VELOCITY, CHRONIC LOWER BACK" required></textarea>
+        <textarea class="form-textarea" id="b-goal" name="goal" rows="2" placeholder="e.g. POWERLIFTING TOTAL, SPRINT VELOCITY, CHRONIC LOWER BACK" required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%">Book My Free Session</button>
     </form>
@@ -1868,42 +1983,44 @@ body::before{
 <!-- ─── Application Modal ──────────────────────────────────── -->
 <dialog class="modal-dialog" id="modal-application" aria-labelledby="app-title">
   <div class="modal modal--wide">
-    <button class="modal-close" onclick="closeDialog('application')" aria-label="Close dialog">&#215;</button>
+    <button class="modal-close" data-close-dialog="application" aria-label="Close dialog">&#215;</button>
     <h3 class="modal-title" id="app-title">Athlete Intake Application</h3>
     <p class="modal-sub">Coached Programming Placement</p>
     <div class="modal-rule"></div>
 
-    <form class="modal-form" id="application-form" onsubmit="handleSubmit(event, 'application', 'Application Received', 'Your lifter profile is in. We review every application and reply within 48 hours.')" novalidate>
+    <form class="modal-form" id="application-form" name="application" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="application">
+      <p hidden aria-hidden="true"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <div class="modal-row-3">
         <div>
           <label class="form-label" for="a-name">Name</label>
-          <input type="text" class="form-input" id="a-name" placeholder="NAME" required autocomplete="name">
+          <input type="text" class="form-input" id="a-name" name="name" placeholder="NAME" required autocomplete="name">
         </div>
         <div>
           <label class="form-label" for="a-email">Email</label>
-          <input type="email" class="form-input" id="a-email" placeholder="EMAIL" required autocomplete="email">
+          <input type="email" class="form-input" id="a-email" name="email" placeholder="EMAIL" required autocomplete="email">
         </div>
         <div>
           <label class="form-label" for="a-age">Age</label>
-          <input type="number" class="form-input" id="a-age" placeholder="AGE" min="13" max="99" required>
+          <input type="number" class="form-input" id="a-age" name="age" placeholder="AGE" min="13" max="99" required>
         </div>
       </div>
 
       <div>
         <p class="modal-section-label" style="border-top:1px solid var(--border-2);padding-top:14px">Your Maximum Lifts</p>
         <div class="modal-lifts" style="margin-top:8px">
-          <input type="text" class="form-input" placeholder="SQUAT e.g. 180kg" id="a-squat">
-          <input type="text" class="form-input" placeholder="BENCH e.g. 120kg" id="a-bench">
-          <input type="text" class="form-input" placeholder="DEADLIFT e.g. 220kg" id="a-deadlift">
+          <input type="text" class="form-input" placeholder="SQUAT e.g. 180kg" id="a-squat" name="squat" aria-label="Squat max">
+          <input type="text" class="form-input" placeholder="BENCH e.g. 120kg" id="a-bench" name="bench" aria-label="Bench max">
+          <input type="text" class="form-input" placeholder="DEADLIFT e.g. 220kg" id="a-deadlift" name="deadlift" aria-label="Deadlift max">
         </div>
       </div>
       <div>
         <label class="form-label" for="a-exp">Training Experience</label>
-        <input type="text" class="form-input" id="a-exp" placeholder="e.g. 3 YEARS POWERLIFTING, FORMER COLLEGIATE WRESTLER" required>
+        <input type="text" class="form-input" id="a-exp" name="experience" placeholder="e.g. 3 YEARS POWERLIFTING, FORMER COLLEGIATE WRESTLER" required>
       </div>
       <div>
         <label class="form-label" for="a-mot">Why the Sweatt Shop?</label>
-        <textarea class="form-textarea" id="a-mot" rows="3" placeholder="WHAT ARE YOU TRAINING FOR? TELL US YOUR GOAL..." required></textarea>
+        <textarea class="form-textarea" id="a-mot" name="why" rows="3" placeholder="WHAT ARE YOU TRAINING FOR? TELL US YOUR GOAL..." required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%">Submit Application</button>
     </form>
@@ -1918,170 +2035,10 @@ body::before{
     </div>
     <h3 class="modal-title" id="confirm-title">You're In</h3>
     <p class="modal-sub" id="confirm-msg" style="color:var(--muted);letter-spacing:.04em;text-transform:none;font-weight:400;font-size:13px;line-height:1.7;margin-top:10px"></p>
-    <button class="btn-primary" onclick="closeDialog('confirm')" style="width:100%;margin-top:22px">Done</button>
+    <button class="btn-primary" data-close-dialog="confirm" style="width:100%;margin-top:22px">Done</button>
   </div>
 </dialog>
 
-<script>
-/* ─── Nav toggle ──────────────────────────────────────────── */
-const burger = document.getElementById('nav-burger');
-const mobileNav = document.getElementById('nav-mobile');
-burger.addEventListener('click', () => {
-  const open = mobileNav.classList.toggle('open');
-  burger.setAttribute('aria-expanded', open);
-});
-function closeNav() {
-  mobileNav.classList.remove('open');
-  burger.setAttribute('aria-expanded', false);
-}
-
-/* ─── Scroll progress + nav shrink ────────────────────────── */
-const navEl = document.querySelector('.nav');
-const progressEl = document.getElementById('scroll-progress');
-let scrollTicking = false;
-function onScroll() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  progressEl.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-  navEl.classList.toggle('scrolled', scrollTop > 40);
-  scrollTicking = false;
-}
-window.addEventListener('scroll', () => {
-  if (!scrollTicking) { requestAnimationFrame(onScroll); scrollTicking = true; }
-}, { passive: true });
-onScroll();
-
-/* ─── Dialogs (native <dialog>: free focus trap + Escape) ──── */
-function openDialog(id) {
-  const d = document.getElementById('modal-' + id);
-  if (!d) return;
-  d.showModal();
-  const first = d.querySelector('input,select,textarea');
-  if (first) setTimeout(() => first.focus(), 120);
-}
-function closeDialog(id) {
-  document.getElementById('modal-' + id)?.close();
-}
-// Light-dismiss: click on the backdrop (the dialog element itself) closes it.
-document.querySelectorAll('.modal-dialog').forEach(d => {
-  d.addEventListener('click', e => { if (e.target === d) d.close(); });
-});
-
-/* ─── Form submit → reusable confirmation dialog ──────────── */
-function handleSubmit(e, fromDialog, title, msg) {
-  e.preventDefault();
-  if (fromDialog) closeDialog(fromDialog);
-  document.getElementById('confirm-title').textContent = title;
-  document.getElementById('confirm-msg').textContent = msg;
-  e.target.reset();
-  openDialog('confirm');
-}
-
-/* ─── Scroll reveals ──────────────────────────────────────── */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-clip').forEach(el => revealObserver.observe(el));
-
-/* ─── Count-up animation ──────────────────────────────────── */
-function countUp(el, target, duration, suffix) {
-  const start = performance.now();
-  const update = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + (suffix || '');
-    if (progress < 1) requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-}
-
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = parseInt(el.dataset.target, 10);
-    if (!isNaN(target)) {
-      countUp(el, target, 1400);
-      countObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('[data-count], .pr-counter').forEach(el => {
-  if (el.classList.contains('pr-counter')) {
-    el.dataset.target = el.dataset.target || el.textContent.trim();
-  }
-  countObserver.observe(el);
-});
-
-/* ─── PR Calculator ───────────────────────────────────────── */
-const PCT_PROTOCOLS = [
-  { pct: 45, label: 'Light Dynamic',     purpose: '~3x5 @ 45% - GPP Speed' },
-  { pct: 50, label: 'Speed (Bands)',      purpose: '9x3 @ 50% - Dynamic Effort primary' },
-  { pct: 55, label: 'Speed (Chains)',     purpose: '8x3 @ 55% - Transition load' },
-  { pct: 60, label: 'Dynamic Effort',     purpose: '12x2 @ 60% - Classic DE protocol' },
-  { pct: 65, label: 'Submaximal',         purpose: '5x2 @ 65% - Heavy dynamic' },
-  { pct: 70, label: 'Near Maximal',       purpose: '3x1 @ 70% - Bridge to ME work' },
-  { pct: 75, label: 'Heavy Single',       purpose: '1x1 @ 75% - Max effort threshold' },
-  { pct: 80, label: 'Max Effort Range',   purpose: '1x1 @ 80% - Competition prep' },
-  { pct: 90, label: 'Competition Attempt',purpose: '1x1 @ 90% - Peak single' },
-];
-
-function calcRM(weight, reps) {
-  if (reps < 1) return { epley: weight, brzycki: weight };
-  const epley = weight * (1 + reps / 30);
-  const brzycki = reps === 1 ? weight : weight * (36 / (37 - Math.min(reps, 36)));
-  return { epley: Math.round(epley), brzycki: Math.round(brzycki) };
-}
-
-function updateCalc() {
-  const weight = parseFloat(document.getElementById('calc-weight').value) || 0;
-  const reps   = parseInt(document.getElementById('calc-reps').value, 10) || 1;
-  const { epley, brzycki } = calcRM(weight, reps);
-
-  document.getElementById('calc-epley').innerHTML   = epley   + '<span class="calc-rm-unit">kg</span>';
-  document.getElementById('calc-brzycki').innerHTML = brzycki + '<span class="calc-rm-unit">kg</span>';
-
-  const rm = epley;
-  const table = document.getElementById('pct-table');
-  const rows = PCT_PROTOCOLS.map(p => {
-    const load = Math.round(rm * p.pct / 100);
-    return `<div class="pct-row">
-      <div class="pct-val">${p.pct}%</div>
-      <div class="pct-load">${load}kg</div>
-      <div>
-        <div class="pct-protocol">${p.label}</div>
-        <div class="pct-purpose">${p.purpose}</div>
-      </div>
-    </div>`;
-  }).join('');
-
-  // Keep the header, replace only rows
-  const header = table.querySelector('.pct-table-head');
-  table.innerHTML = '';
-  table.appendChild(header);
-  table.insertAdjacentHTML('beforeend', rows);
-}
-
-// Init calculator on load
-document.addEventListener('DOMContentLoaded', updateCalc);
-
-/* ─── Reduced motion ──────────────────────────────────────── */
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('.reveal, .reveal-clip').forEach(el => {
-    el.style.transition = 'none';
-    el.classList.add('visible');
-  });
-  document.querySelectorAll('[style*="animation"]').forEach(el => {
-    el.style.animation = 'none';
-  });
-}
-</script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

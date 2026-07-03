@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accessibility Statement: Sweatt Shop</title>
+<meta name="description" content="The Sweatt Shop's commitment to WCAG 2.1 AA web accessibility: what we've built, our conformance target, and how to reach us if you hit a barrier.">
+<link rel="canonical" href="https://sweattshop.com/accessibility.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -75,9 +80,9 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .footer-link{transition:color .15s var(--ease-out)}
 .footer-link:hover{color:var(--brand)}
 .footer-legal{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:22px}
-.footer-copy{font-size:9.5px;letter-spacing:.08em;color:#555;text-transform:uppercase}
+.footer-copy{font-size:9.5px;letter-spacing:.08em;color:#8a8f8a;text-transform:uppercase}
 .footer-legal-links{display:flex;gap:18px}
-.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#555}
+.footer-legal-links .footer-link{font-size:9.5px;letter-spacing:.08em;color:#8a8f8a}
 .footer-legal-links .footer-link:hover{color:var(--brand)}
 .footer-legal-links .footer-link[aria-current="page"]{color:var(--brand)}
 @media(max-width:600px){
@@ -87,37 +92,41 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ─── Focus visibility (ADA) ──────────────────────────────── */
 a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* ─── Skip link (CSP-safe, no inline handlers) ────────────── */
+.skip-link{position:absolute;left:16px;top:-60px;z-index:1000;background:var(--brand);color:var(--black);padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:top .2s var(--ease-out)}
+.skip-link:focus{top:16px}
 </style>
 </head>
 <body>
 
-<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--brand);color:var(--black);padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;z-index:1000" onfocus="this.style.left='16px';this.style.top='16px'" onblur="this.style.left='-9999px'">Skip to content</a>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="sweatt-shop-redesign.html" class="brand" aria-label="Sweatt Shop home">
+    <a href="index.html" class="brand" aria-label="Sweatt Shop home">
       <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img">
     </a>
     <div class="nav-links" role="list">
-      <a href="sweatt-shop-redesign.html#home"     class="nav-link" role="listitem">Home</a>
-      <a href="sweatt-shop-redesign.html#training" class="nav-link" role="listitem">Training</a>
-      <a href="sweatt-shop-redesign.html#pricing"  class="nav-link" role="listitem">Pricing</a>
-      <a href="sweatt-shop-redesign.html#lineage"  class="nav-link" role="listitem">Lineage</a>
-      <a href="sweatt-shop-redesign.html#records"  class="nav-link" role="listitem">Records</a>
-      <a href="sweatt-shop-redesign.html#faq"      class="nav-link" role="listitem">FAQ</a>
-      <a href="sweatt-shop-redesign.html#contact"  class="nav-link" role="listitem">Contact</a>
+      <a href="index.html#home"     class="nav-link" role="listitem">Home</a>
+      <a href="index.html#training" class="nav-link" role="listitem">Training</a>
+      <a href="index.html#pricing"  class="nav-link" role="listitem">Pricing</a>
+      <a href="index.html#lineage"  class="nav-link" role="listitem">Lineage</a>
+      <a href="index.html#records"  class="nav-link" role="listitem">Records</a>
+      <a href="index.html#faq"      class="nav-link" role="listitem">FAQ</a>
+      <a href="index.html#contact"  class="nav-link" role="listitem">Contact</a>
     </div>
-    <a href="sweatt-shop-redesign.html#contact" class="nav-cta">BOOK A SESSION</a>
+    <a href="index.html#contact" class="nav-cta">BOOK A SESSION</a>
     <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
   </div>
   <div class="nav-mobile" id="nav-mobile" role="list">
-    <a href="sweatt-shop-redesign.html#home"     class="nav-link">Home</a>
-    <a href="sweatt-shop-redesign.html#training" class="nav-link">Training</a>
-    <a href="sweatt-shop-redesign.html#pricing"  class="nav-link">Pricing</a>
-    <a href="sweatt-shop-redesign.html#lineage"  class="nav-link">Lineage</a>
-    <a href="sweatt-shop-redesign.html#records"  class="nav-link">Records</a>
-    <a href="sweatt-shop-redesign.html#faq"      class="nav-link">FAQ</a>
-    <a href="sweatt-shop-redesign.html#contact"  class="nav-link">Contact</a>
+    <a href="index.html#home"     class="nav-link">Home</a>
+    <a href="index.html#training" class="nav-link">Training</a>
+    <a href="index.html#pricing"  class="nav-link">Pricing</a>
+    <a href="index.html#lineage"  class="nav-link">Lineage</a>
+    <a href="index.html#records"  class="nav-link">Records</a>
+    <a href="index.html#faq"      class="nav-link">FAQ</a>
+    <a href="index.html#contact"  class="nav-link">Contact</a>
   </div>
 </nav>
 
@@ -150,7 +159,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
     <p>We are not aware of any outstanding accessibility barriers on this site. If you encounter one, please let us know using the contact details below and we will address it.</p>
 
     <h2>Feedback</h2>
-    <p>If you experience any difficulty accessing content on this site, contact us through our <a href="sweatt-shop-redesign.html#contact">contact form</a>. We aim to respond to accessibility feedback within a few business days.</p>
+    <p>If you experience any difficulty accessing content on this site, contact us through our <a href="index.html#contact">contact form</a>. We aim to respond to accessibility feedback within a few business days.</p>
   </div>
 </main>
 
@@ -158,15 +167,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <a href="sweatt-shop-redesign.html" class="brand" aria-label="Sweatt Shop home">
+        <a href="index.html" class="brand" aria-label="Sweatt Shop home">
           <img src="images/logo.png" alt="Sweatt Shop" class="nav-logo-img">
         </a>
         <div class="footer-tagline">Strength for Every Body. Blue Ash, Ohio.</div>
       </div>
       <nav class="footer-links" aria-label="Social media links">
-        <a href="https://instagram.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Instagram</a>
-        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noreferrer" class="footer-link">YouTube</a>
-        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noreferrer" class="footer-link">Facebook</a>
+        <a href="https://instagram.com/sweattshopcincinnati" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">YouTube</a>
+        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
       </nav>
     </div>
     <div class="footer-legal">
@@ -179,13 +188,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
   </div>
 </footer>
 
-<script>
-const burger = document.getElementById('nav-burger');
-const mobileNav = document.getElementById('nav-mobile');
-burger.addEventListener('click', () => {
-  const open = mobileNav.classList.toggle('open');
-  burger.setAttribute('aria-expanded', open);
-});
-</script>
+<script src="js/legal.js" defer></script>
 </body>
 </html>
