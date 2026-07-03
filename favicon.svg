@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0d110e"/>
-  <!-- Plates — three stacked vertical bars, left side -->
-  <rect x="8"  y="14" width="7" height="36" rx="3" fill="#6DC23C"/>
-  <rect x="17" y="19" width="6" height="26" rx="2.5" fill="#6DC23C"/>
-  <rect x="25" y="23" width="5" height="18" rx="2" fill="#6DC23C"/>
-  <!-- Bar — horizontal -->
-  <rect x="28" y="29" width="28" height="6" rx="3" fill="#ffffff"/>
+  <rect width="64" height="64" rx="14" fill="#060807"/>
+  <!-- Barbell end: three gently curved plates + bar, mirroring the logo mark -->
+  <path d="M16 8  A60 60 0 0 0 16 56" stroke="#9be24a" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M27 11 A52 52 0 0 0 27 53" stroke="#9be24a" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M38 15 A45 45 0 0 0 38 49" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="39" y="28.5" width="21" height="7" rx="3.5" fill="#ffffff"/>
 </svg>

@@ -160,8 +160,8 @@ function updateCalc() {
   const reps   = parseInt(document.getElementById('calc-reps').value, 10) || 1;
   const { epley, brzycki } = calcRM(weight, reps);
 
-  document.getElementById('calc-epley').innerHTML   = epley   + '<span class="calc-rm-unit">kg</span>';
-  document.getElementById('calc-brzycki').innerHTML = brzycki + '<span class="calc-rm-unit">kg</span>';
+  document.getElementById('calc-epley').innerHTML   = epley   + '<span class="calc-rm-unit">lb</span>';
+  document.getElementById('calc-brzycki').innerHTML = brzycki + '<span class="calc-rm-unit">lb</span>';
 
   const rm = epley;
   const table = document.getElementById('pct-table');
@@ -169,7 +169,7 @@ function updateCalc() {
     const load = Math.round(rm * p.pct / 100);
     return `<div class="pct-row">
       <div class="pct-val">${p.pct}%</div>
-      <div class="pct-load">${load}kg</div>
+      <div class="pct-load">${load}lb</div>
       <div>
         <div class="pct-protocol">${p.label}</div>
         <div class="pct-purpose">${p.purpose}</div>

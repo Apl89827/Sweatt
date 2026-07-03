@@ -341,12 +341,6 @@ body::before{
 .btn-ghost:hover{border-color:var(--brand);color:var(--white);transform:translateY(-2px)}
 .btn-ghost:active{transform:scale(0.97) translateY(0)}
 
-.hero-line{
-  position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(to bottom, transparent, var(--brand) 30%, var(--brand) 70%, transparent);
-  opacity:0;animation:fade-in .8s var(--ease-out) .5s forwards;
-}
-
 /* ─── Stats ───────────────────────────────────────────────── */
 .stats{
   position:relative;z-index:10;
@@ -656,19 +650,12 @@ body::before{
 }
 .coach-rule{width:44px;height:2px;background:var(--brand)}
 .coach-quote{
-  position:relative;
   padding:16px 18px;
   background:color-mix(in srgb,var(--brand) 7%,transparent);
   border:1px solid color-mix(in srgb,var(--brand) 20%,transparent);
+  border-left:3px solid var(--brand);
   font-size:11.5px;font-style:italic;line-height:1.75;
   color:color-mix(in srgb,var(--brand) 90%,transparent);
-}
-.coach-quote::before{
-  content:'\201C';
-  font-family:var(--font-d);font-size:40px;
-  color:color-mix(in srgb,var(--brand) 25%,transparent);
-  position:absolute;top:-10px;left:12px;
-  line-height:1;
 }
 .coach-bio{font-size:11.5px;line-height:1.75;color:var(--muted)}
 .coach-skills-head{
@@ -769,6 +756,24 @@ body::before{
   font-size:9.5px;letter-spacing:.08em;color:var(--brand);
   text-transform:uppercase;margin-top:2px;
 }
+.testimonial-card--google{
+  align-items:center;justify-content:center;text-align:center;gap:8px;
+  border-color:color-mix(in srgb,var(--brand) 30%,transparent);
+}
+.google-rating-num{
+  font-family:var(--font-d);font-size:64px;line-height:1;color:var(--white);
+}
+.google-rating-stars{font-size:16px;letter-spacing:.2em;color:var(--brand)}
+.google-rating-label{
+  font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;
+}
+.google-rating-cta{
+  margin-top:14px;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--brand);text-transform:uppercase;
+  border-bottom:1px solid color-mix(in srgb,var(--brand) 45%,transparent);
+  padding-bottom:2px;
+}
+.testimonial-card--google:hover .google-rating-cta{color:var(--brand-strong)}
 
 /* ─── Records ─────────────────────────────────────────────── */
 .records-h2{
@@ -1210,8 +1215,15 @@ body::before{
     "jobTitle": "Founder / Master-Certified Westside Barbell Coach"
   },
   "sameAs": [
-    "https://instagram.com/sweattshopcincinnati"
+    "https://instagram.com/sweattshopcincinnati",
+    "https://www.facebook.com/sweattshoppersonaltraining",
+    "https://www.youtube.com/@sweattshopcincinnati"
   ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "30"
+  },
   "priceRange": "$89-$219/month"
 }
 </script>
@@ -1319,7 +1331,6 @@ body::before{
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-line" aria-hidden="true"></div>
     <p class="hero-eyebrow">Cincinnati's Westside-Certified Strength Facility</p>
     <h1 class="hero-h1" id="hero-heading">
       THE BARBELL<br>
@@ -1617,55 +1628,51 @@ body::before{
 
   <div class="testimonial-row" role="list">
     <div class="testimonial-card reveal" role="listitem">
-      <p class="testimonial-quote">Every session is written around my actual numbers, not a generic sheet. Six months in and my vertical is still climbing.</p>
+      <p class="testimonial-quote">I just recently found this gem. Powerlifting, weight training, and personal training without the Planet Fitness nonsense. Shane and his team are going to get me back to where I want to be.</p>
       <div class="testimonial-foot">
-        <div class="testimonial-avatar" aria-hidden="true">SW</div>
+        <div class="testimonial-avatar" aria-hidden="true">ML</div>
         <div>
-          <div class="testimonial-name">S. Williams</div>
-          <div class="testimonial-stat">+4.2&quot; Vertical Jump</div>
+          <div class="testimonial-name">Michael Lelasher</div>
+          <div class="testimonial-stat">&#9733;&#9733;&#9733;&#9733;&#9733; Google Review</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-card reveal" style="transition-delay:.06s" role="listitem">
-      <p class="testimonial-quote">I came in for longevity, not competition. Nobody made me feel out of place lifting next to powerlifters.</p>
+      <p class="testimonial-quote">The Sweatt Shop is a one of a kind gym. It has a variety of equipment that you will never find at most gyms. It has by far been my best experience at a gym.</p>
       <div class="testimonial-foot">
-        <div class="testimonial-avatar" aria-hidden="true">TC</div>
+        <div class="testimonial-avatar" aria-hidden="true">JA</div>
         <div>
-          <div class="testimonial-name">T. Carter</div>
-          <div class="testimonial-stat">+60lb Trap Bar / &minus;8bpm Resting HR</div>
+          <div class="testimonial-name">Jessica Anderson</div>
+          <div class="testimonial-stat">&#9733;&#9733;&#9733;&#9733;&#9733; Google Review</div>
         </div>
       </div>
     </div>
 
     <div class="testimonial-card reveal" style="transition-delay:.12s" role="listitem">
-      <p class="testimonial-quote">Westside-certified coaching is the real thing here. My deadlift moved more in one cycle than in three years on my own.</p>
+      <p class="testimonial-quote">Sweatt Shop is unlike any other gym in Cincinnati. I have been training there for 2 years now and do not plan on ever training anywhere else.</p>
       <div class="testimonial-foot">
-        <div class="testimonial-avatar" aria-hidden="true">MK</div>
+        <div class="testimonial-avatar" aria-hidden="true">SK</div>
         <div>
-          <div class="testimonial-name">M. Kane</div>
-          <div class="testimonial-stat">340kg Deadlift PR</div>
+          <div class="testimonial-name">Simon Kretchik</div>
+          <div class="testimonial-stat">&#9733;&#9733;&#9733;&#9733;&#9733; Google Review</div>
         </div>
       </div>
     </div>
 
-    <div class="testimonial-card reveal" style="transition-delay:.18s" role="listitem">
-      <p class="testimonial-quote">Straightforward, no fluff, no upsells. Just a coach who knows the conjugate method cold and holds you to it.</p>
-      <div class="testimonial-foot">
-        <div class="testimonial-avatar" aria-hidden="true">JM</div>
-        <div>
-          <div class="testimonial-name">J. Miller</div>
-          <div class="testimonial-stat">315kg Squat PR</div>
-        </div>
-      </div>
-    </div>
+    <a class="testimonial-card testimonial-card--google reveal" style="transition-delay:.18s" role="listitem" href="https://share.google/z7TBZeY8olr4zNhtP" target="_blank" rel="noopener noreferrer" aria-label="Read all 30 Sweatt Shop reviews on Google, rated 4.8 out of 5">
+      <div class="google-rating-num">4.8</div>
+      <div class="google-rating-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="google-rating-label">30 Reviews on Google</div>
+      <div class="google-rating-cta">Read Them All &rarr;</div>
+    </a>
   </div>
 </section>
 
 <!-- ─── Records ────────────────────────────────────────────── -->
 <section id="records" class="section" aria-labelledby="records-heading">
   <h2 class="records-h2 reveal-clip" id="records-heading">PRS DON'T LIE.</h2>
-  <p class="records-sub reveal">Real performance data: kilos added, not inches lost. This is where the work shows up.</p>
+  <p class="records-sub reveal">Real performance data: pounds added, not inches lost. This is where the work shows up.</p>
   <div class="records-rule reveal"></div>
 
   <h3 class="reveal" style="margin-top:52px;font-family:var(--font-d);font-size:clamp(22px,3vw,30px);letter-spacing:.04em;text-transform:uppercase;color:var(--brand);margin-bottom:20px">All-Time Records</h3>
@@ -1673,17 +1680,17 @@ body::before{
   <div class="pr-grid">
     <div class="pr-cell reveal">
       <div class="pr-lift">Squat</div>
-      <div class="pr-num"><span class="pr-counter" data-target="315">315</span><span class="pr-unit">kg</span></div>
+      <div class="pr-num"><span class="pr-counter" data-target="694">694</span><span class="pr-unit">lb</span></div>
       <div class="pr-holder">J. Miller / 2023</div>
     </div>
     <div class="pr-cell reveal" style="transition-delay:.06s">
       <div class="pr-lift">Bench</div>
-      <div class="pr-num"><span class="pr-counter" data-target="205">205</span><span class="pr-unit">kg</span></div>
+      <div class="pr-num"><span class="pr-counter" data-target="452">452</span><span class="pr-unit">lb</span></div>
       <div class="pr-holder">T. Davis / 2024</div>
     </div>
     <div class="pr-cell reveal" style="transition-delay:.12s">
       <div class="pr-lift">Deadlift</div>
-      <div class="pr-num"><span class="pr-counter" data-target="340">340</span><span class="pr-unit">kg</span></div>
+      <div class="pr-num"><span class="pr-counter" data-target="750">750</span><span class="pr-unit">lb</span></div>
       <div class="pr-holder">M. Kane / 2023</div>
     </div>
   </div>
@@ -1761,8 +1768,8 @@ body::before{
             </select>
           </div>
           <div>
-            <label class="calc-label" for="calc-weight">Weight (kg)</label>
-            <input type="number" class="calc-input" id="calc-weight" min="1" value="100">
+            <label class="calc-label" for="calc-weight">Weight (lbs)</label>
+            <input type="number" class="calc-input" id="calc-weight" min="1" value="225">
           </div>
           <div>
             <label class="calc-label" for="calc-reps">Reps</label>
@@ -1773,11 +1780,11 @@ body::before{
           <p class="calc-result-label">Estimated 1-Rep Max</p>
           <div class="calc-result-grid">
             <div class="calc-rm-divider">
-              <div class="calc-rm" id="calc-epley">0<span class="calc-rm-unit">kg</span></div>
+              <div class="calc-rm" id="calc-epley">0<span class="calc-rm-unit">lb</span></div>
               <div class="calc-rm-method">Epley (Standard)</div>
             </div>
             <div>
-              <div class="calc-rm secondary" id="calc-brzycki">0<span class="calc-rm-unit">kg</span></div>
+              <div class="calc-rm secondary" id="calc-brzycki">0<span class="calc-rm-unit">lb</span></div>
               <div class="calc-rm-method">Brzycki (Strict)</div>
             </div>
           </div>
@@ -1865,7 +1872,7 @@ body::before{
         </div>
         <div>
           <label class="form-label" for="c-mission">Your Mission / Intent</label>
-          <textarea class="form-textarea" id="c-mission" name="mission" rows="4" placeholder="WHAT IS YOUR TARGET? (e.g. Add 50kg to total, elite power)" required></textarea>
+          <textarea class="form-textarea" id="c-mission" name="mission" rows="4" placeholder="WHAT IS YOUR TARGET? (e.g. Add 100lb to total, elite power)" required></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%">SEND MESSAGE</button>
       </form>
@@ -1916,8 +1923,8 @@ body::before{
       </div>
       <nav class="footer-links" aria-label="Social media links">
         <a href="https://instagram.com/sweattshopcincinnati" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
-        <a href="https://youtube.com/@thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">YouTube</a>
-        <a href="https://facebook.com/thesweattshop" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
+        <a href="https://www.youtube.com/@sweattshopcincinnati" target="_blank" rel="noopener noreferrer" class="footer-link">YouTube</a>
+        <a href="https://www.facebook.com/sweattshoppersonaltraining" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
       </nav>
     </div>
     <div class="footer-legal">
@@ -2009,9 +2016,9 @@ body::before{
       <div>
         <p class="modal-section-label" style="border-top:1px solid var(--border-2);padding-top:14px">Your Maximum Lifts</p>
         <div class="modal-lifts" style="margin-top:8px">
-          <input type="text" class="form-input" placeholder="SQUAT e.g. 180kg" id="a-squat" name="squat" aria-label="Squat max">
-          <input type="text" class="form-input" placeholder="BENCH e.g. 120kg" id="a-bench" name="bench" aria-label="Bench max">
-          <input type="text" class="form-input" placeholder="DEADLIFT e.g. 220kg" id="a-deadlift" name="deadlift" aria-label="Deadlift max">
+          <input type="text" class="form-input" placeholder="SQUAT e.g. 405lb" id="a-squat" name="squat" aria-label="Squat max">
+          <input type="text" class="form-input" placeholder="BENCH e.g. 265lb" id="a-bench" name="bench" aria-label="Bench max">
+          <input type="text" class="form-input" placeholder="DEADLIFT e.g. 495lb" id="a-deadlift" name="deadlift" aria-label="Deadlift max">
         </div>
       </div>
       <div>
